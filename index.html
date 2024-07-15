@@ -200,142 +200,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <span id="more"></span>
-
-<p>——-如何创建个人博客(hexo+Github)——–</p>
-<h2 id="博客由“生成框架-hexo-”，“托管平台-GitHub-”，“静态网站托管”来构建而成"><a href="#博客由“生成框架-hexo-”，“托管平台-GitHub-”，“静态网站托管”来构建而成" class="headerlink" title="博客由“生成框架(hexo)”，“托管平台(GitHub)”，“静态网站托管”来构建而成"></a>博客由“生成框架(hexo)”，“托管平台(GitHub)”，“静态网站托管”来构建而成</h2><p>附Hexo官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>附GitHub官网：<a target="_blank" rel="noopener" href="https://github.com/huangyingyuan">https://github.com/</a></p>
-<h1 id="第一步，先配置开发环境（博客生成框架）"><a href="#第一步，先配置开发环境（博客生成框架）" class="headerlink" title="第一步，先配置开发环境（博客生成框架）"></a>第一步，先配置开发环境（博客生成框架）</h1><p>个人用的是windows系统</p>
-<p>配置框架：hexo</p>
-<h2 id="输入网址-codejs-org-配置下载codejs-下载完成后"><a href="#输入网址-codejs-org-配置下载codejs-下载完成后" class="headerlink" title="输入网址(codejs.org)配置下载codejs,下载完成后"></a>输入网址(codejs.org)配置下载codejs,下载完成后</h2><h2 id="打开codejs小窗口"><a href="#打开codejs小窗口" class="headerlink" title="打开codejs小窗口"></a>打开codejs小窗口</h2><p>查看code版本：code -v</p>
-<p>npm版本:       npm _v</p>
-<p>能正常看到版本信息即可说明配置完成</p>
-<h2 id="插入疑惑？npm是啥？"><a href="#插入疑惑？npm是啥？" class="headerlink" title="插入疑惑？npm是啥？"></a>插入疑惑？npm是啥？</h2><p>npm（node package manager）：node.js 的包管理器，用于node插件管理（包括安装、卸载、管理依赖等） ，npm 是随同 node.js 一起安装的包管理工具，能解决 node.js 代码部署上的很多问题</p>
-<h2 id="修改npm的网源-因为npm官网源下载速度比较慢"><a href="#修改npm的网源-因为npm官网源下载速度比较慢" class="headerlink" title="修改npm的网源(因为npm官网源下载速度比较慢)"></a>修改npm的网源(因为npm官网源下载速度比较慢)</h2><p>推荐用TB(淘宝)的网源：<br>npm config get registry # 查看原来的源</p>
-<p>npm config set registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> # 修改为淘宝源</p>
-<p>npm config get registry # 查看现在的源</p>
-<h2 id="有了npm，安装hexo就方便了，只需要一行代码"><a href="#有了npm，安装hexo就方便了，只需要一行代码" class="headerlink" title="有了npm，安装hexo就方便了，只需要一行代码"></a>有了npm，安装hexo就方便了，只需要一行代码</h2><p>npm install hexo-cli -g # 全局安装hexo命令行工具</p>
-<h2 id="插入疑惑？hexo是啥？"><a href="#插入疑惑？hexo是啥？" class="headerlink" title="插入疑惑？hexo是啥？"></a>插入疑惑？hexo是啥？</h2><p>Hexo 是一个快速、简洁且高效的博客框架。它允许用户使用 Markdown 语言编写内容，并将其渲染为静态网页。它相当于与一个网站的主题模板，只需要做简单的配置就能够完成页面的渲染。其主要特点包括快速部署，Markdown 支持，灵活的布局，丰富的插件。</p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>在桌面右键建立一个名为MyBlog文件夹，点进文件夹里，再次右键，点击更多，打开Open Git Bash here(目的是在文件夹目录中下载hexo)<br>上步操作后，输入hexo init“你的目录名”<br>等待下载一系列文件在文件夹中即可</p>
-<ol>
-<li><p>在github平台上注册账号(需要翻墙，因为是国外的站点)</p>
-</li>
-<li><p>在github平台上创建库</p>
-<p> —-找到“Start a new respository”然后在CesteoNew右边输入自己的仓库的名称(最好是“自己的用户名.github.io”)</p>
-</li>
-</ol>
-<h2 id="在git小窗口上初始化自己的邮箱和用户名"><a href="#在git小窗口上初始化自己的邮箱和用户名" class="headerlink" title="在git小窗口上初始化自己的邮箱和用户名"></a>在git小窗口上初始化自己的邮箱和用户名</h2><p>初始化用户名： git config –global user.name “自己的用户名”</p>
-<p>初始化邮箱：	git config -gloobal user.email “自己的邮箱”</p>
-<p>疑惑？<br>如何自己检查自己的用户名与邮箱是否被记住？</p>
-<p>检查自己的用户名—-输入代码“git config -global user.name</p>
-<p>检查自己的郵箱——输入代码“git config -global user.email</p>
-<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>先在git小窗口，输入“ssh-keygen -t rsa -C “你的邮箱”。然后一直按回车，直到出现一串代码，把代码复制下来(用在后面的SSH key提取)</p>
-<p>点开Github，点击头像，点击setting然后找到SSH and GPG keys，进入里面，new一个SSH key</p>
-<p>—–在Tille处，随便填即可</p>
-<p>—–下面的key粘贴刚才的代码进去即可（产生一个简单的连接）</p>
-<p>验证是否连接成功？</p>
-<p>在小窗口输入“ssh -T <a href="mailto:git@github.com">git@github.com</a>”  出现yes与no的问答，回答yes即可</p>
-<h3 id="配置连接来上传部署"><a href="#配置连接来上传部署" class="headerlink" title="配置连接来上传部署"></a>配置连接来上传部署</h3><p>(获取仓库地址)点开Github，点击左上角头像，下面有一串网址，点击进去后，点击SSH键，复制那个码(用于下面加进去的repository后的网址)</p>
-<p>然后在文件‘_config.yml’中用记事本打开，在后面几行输入如下：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1712670272067-bea9c831-2fd5-4043-ae1b-3ad791d7d670.png#averageHue=%23eeedec&amp;id=LEsax&amp;originHeight=157&amp;originWidth=1343&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title="></p>
-<p>注意，在冒号后面是要加一个空格的，否则报错</p>
-<p>保存好修改的内容后，将git用cd切换到对应的目录内，然后输入hexo d 来上传文件到github内，出现以下代码即可</p>
-<p><img src="https://camo.githubusercontent.com/869baa856bc7d205940d71301116679045c687966d2f33bf108c042b6e0034f9/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032342f706e672f34333237383630332f313731323637303237323332322d61333630353537652d653066392d346539352d626363622d3236643966376363363732652e706e6723617665726167654875653d2532333063306130372669643d55466d7738266f726967696e4865696768743d333632266f726967696e57696474683d373238266f726967696e616c547970653d62696e61727926726174696f3d3126726f746174696f6e3d302673686f775469746c653d66616c7365267374617475733d646f6e65267374796c653d6e6f6e65267469746c653d#from=url&amp;id=lwIrB&amp;originHeight=362&amp;originWidth=728&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title="></p>
-<p>可以在github上的code查看是否上传成功</p>
-<h2 id="重要的-config-yml文件"><a href="#重要的-config-yml文件" class="headerlink" title="重要的_config.yml文件"></a>重要的_config.yml文件</h2><h3 id="config-yml文件是干嘛用的？"><a href="#config-yml文件是干嘛用的？" class="headerlink" title="_config.yml文件是干嘛用的？"></a>_config.yml文件是干嘛用的？</h3><p>是 Hexo 博客框架的主配置文件，用于配置和管理整个 Hexo 项目的各种设置。这个文件通常位于 Hexo 项目的根目录下，包含了大量的配置选项，可以让您自定义博客的行为、外观和功能。</p>
-<h3 id="继续修改-config-yml文件里的内容"><a href="#继续修改-config-yml文件里的内容" class="headerlink" title="继续修改_config,yml文件里的内容"></a>继续修改_config,yml文件里的内容</h3><p>(主要修改url，将你打开hexo的网址复制粘贴到url位置就可以，title是指标题，subtitle是副标题，author是指自己的称呼，自行修改即可)<br>    统一资源定位符（Uniform Resource Locator）”简称为URL。<img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1712670273010-5496424d-0f11-40ce-ac3e-fbe677e48a35.png#averageHue=%23f1f0f0&amp;id=pck3w&amp;originHeight=521&amp;originWidth=1763&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title="><br>上传后去hexo界面自己刷新一下就好了，主题之类的就会发生变化</p>
-<h2 id="如何部署网站"><a href="#如何部署网站" class="headerlink" title="如何部署网站"></a>如何部署网站</h2><p>要将 Hexo 博客从本地（localhost）部署到一个永久可以访问的地址上，通常有两种常见的方法：</p>
-<ol>
-<li><strong>部署到 GitHub Pages</strong></li>
-<li><strong>部署到其他静态网站托管服务</strong></li>
-</ol>
-<p>我是使用“部署到GitHub Pages”来实现的(推荐，推荐原因：方便)</p>
-<h3 id="1-部署到-GitHub-Pages"><a href="#1-部署到-GitHub-Pages" class="headerlink" title="1. 部署到 GitHub Pages"></a>1. 部署到 GitHub Pages</h3><h4 id="步骤-1：创建-GitHub-仓库"><a href="#步骤-1：创建-GitHub-仓库" class="headerlink" title="步骤 1：创建 GitHub 仓库"></a>步骤 1：创建 GitHub 仓库</h4><ol>
-<li>登录 GitHub 并创建一个新的仓库，命名为 <code>username.github.io</code>，其中 <code>username</code> 是你的 GitHub 用户名。</li>
-</ol>
-<h4 id="步骤-2：配置-Hexo-部署设置"><a href="#步骤-2：配置-Hexo-部署设置" class="headerlink" title="步骤 2：配置 Hexo 部署设置"></a>步骤 2：配置 Hexo 部署设置</h4><p>在 Hexo 项目的根目录下找到 <code>_config.yml</code> 文件，打开并找到 <code>deploy</code> 部分，添加如下配置：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/username/username.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></tbody></table></figure>
-<p>将 <code>username</code> 替换为你的 GitHub 用户名。</p>
-<p>如果你的仓库默认分支是 <code>master</code> 而不是 <code>main</code>，需要将 <code>branch</code> 设置为 <code>master</code>。</p>
-<h4 id="步骤-3：安装-Hexo-部署插件"><a href="#步骤-3：安装-Hexo-部署插件" class="headerlink" title="步骤 3：安装 Hexo 部署插件"></a>步骤 3：安装 Hexo 部署插件</h4><p>在 Hexo 项目的根目录下，安装 <code>hexo-deployer-git</code> 插件：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="步骤-4：生成和部署网站"><a href="#步骤-4：生成和部署网站" class="headerlink" title="步骤 4：生成和部署网站"></a>步骤 4：生成和部署网站</h4><p>生成并部署你的网站：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-<p>运行上述命令后，你的网站将被生成并推送到 GitHub Pages 仓库。你可以在浏览器中访问 <code>https://username.github.io</code> 来查看你的博客。在博客的setting中可以找到你仓库下对应的Pages下可以查看到</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721008087320-cdaaef2f-dcb3-4af9-bf78-e22b019f28b2.png#averageHue=%23fefefd&amp;clientId=ua7778359-7786-4&amp;from=paste&amp;height=721&amp;id=u8af60f87&amp;originHeight=901&amp;originWidth=1708&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=152614&amp;status=done&amp;style=none&amp;taskId=u50e0f8b4-bd16-45dd-87d8-c4bfd67721a&amp;title=&amp;width=1366.4" alt="image.png"></p>
-<h3 id="2-部署到其他静态网站托管服务"><a href="#2-部署到其他静态网站托管服务" class="headerlink" title="2. 部署到其他静态网站托管服务"></a>2. 部署到其他静态网站托管服务</h3><p>如果你不想使用 GitHub Pages，你也可以选择其他静态网站托管服务，如 Netlify、Vercel 或者 GitLab Pages。</p>
-<h4 id="部署到-Netlify"><a href="#部署到-Netlify" class="headerlink" title="部署到 Netlify"></a>部署到 Netlify</h4><ol>
-<li>创建一个 Netlify 账号并登录。</li>
-<li>新建一个站点并关联到你的 GitHub 仓库。</li>
-<li>在构建设置中，将构建命令设置为 <code>hexo generate</code>，将发布目录设置为 <code>public</code>。</li>
-<li>保存并部署。</li>
-</ol>
-<p>Netlify 将自动生成并部署你的网站，你可以在 Netlify 提供的 URL 上访问你的网站。</p>
-<h4 id="部署到-Vercel"><a href="#部署到-Vercel" class="headerlink" title="部署到 Vercel"></a>部署到 Vercel</h4><ol>
-<li>创建一个 Vercel 账号并登录。</li>
-<li>新建一个项目并关联到你的 GitHub 仓库。</li>
-<li>在项目设置中，将构建命令设置为 <code>hexo generate</code>，将输出目录设置为 <code>public</code>。</li>
-<li>保存并部署。</li>
-</ol>
-<p>Vercel 将自动生成并部署你的网站，你可以在 Vercel 提供的 URL 上访问你的网站。</p>
-<h3 id="3-配置自定义域名"><a href="#3-配置自定义域名" class="headerlink" title="3. 配置自定义域名"></a>3. 配置自定义域名</h3><p>无论你选择哪种托管服务，你都可以配置一个自定义域名来访问你的网站。</p>
-<ol>
-<li>购买一个域名并登录到你的域名注册商的控制面板。</li>
-<li>添加一个 CNAME 记录，指向你的托管服务提供的域名。例如，对于 GitHub Pages，CNAME 记录应该指向 <code>username.github.io</code>。</li>
-<li>在你的 Hexo 项目根目录下的 <code>source</code> 文件夹中创建一个名为 <code>CNAME</code> 的文件，文件内容是你的自定义域名（例如，<code>www.yourdomain.com</code>）。</li>
-<li>部署你的网站，托管服务将使用你的自定义域名。</li>
-</ol>
-<p>通过以上步骤，你可以将你的 Hexo 博客从本地部署到一个永久可以访问的地址上，并且可以使用自定义域名来访问你的博客</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在自己部署的GitHub项目的文件下，使用git bash打开</p>
-<h2 id="1，上传文章到hexo上"><a href="#1，上传文章到hexo上" class="headerlink" title="1，上传文章到hexo上"></a>1，上传文章到hexo上</h2><p>—在git的小窗口，输入hexo new “文章的新名字”，就可以生成一篇新的文章</p>
-<p>在自己的目录下，点击sourse，点post，即可看到文章，点进去后用记事本编辑内容即可，写完文章后，在git上输入hexo g 来上传文章，如果报错，可能是要删除tig下面的符号即可(具体说明原因我也不清楚)</p>
-<p>上传成功后可以在自己的目录下，点击public，里面有year，点进去后可以看到对应日期的文章(是同步GitHub上传的文章)</p>
-<p>hexo d(hexo deploy)    自动生成网站静态文件，并部署到设定的仓库<br>。<br>hexo clean             清除缓存文件&nbsp;db.json&nbsp;和已生成的静态文件&nbsp;public。</p>
-<p>hexo g (hexo generate)  生成网站静态文件到默认设置的&nbsp;public&nbsp;文件夹</p>
-<h2 id="2，如何删除文件夹"><a href="#2，如何删除文件夹" class="headerlink" title="2，如何删除文件夹"></a>2，如何删除文件夹</h2><p>先在sourse上删除文件，然后在public上删除文件，最后在git小窗口输入<br>hexo clean来刷新，后来用hexo g，再用hexo d ，即可删除内容</p>
-<h1 id="优化界面"><a href="#优化界面" class="headerlink" title="优化界面"></a>优化界面</h1><p>依旧是在自己部署的GitHub项目的文件下，在与_config.yml同级文件下，命名一个为themes的文件夹，里面存放在别人的Hithub开源的主题代码，拉取到该文件themes下即可</p>
-<p>开源网址(一时嫖一时爽，天天嫖天天爽)<br>有多种主题自己选：    <a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a><br>我非常喜欢逛的博主(最喜欢白嫖他的东西)：<a target="_blank" rel="noopener" href="https://www.fomal.cc/page/2/#content-inner">https://www.fomal.cc/page/2/#content-inner</a></p>
-<h2 id="部署主题"><a href="#部署主题" class="headerlink" title="部署主题"></a>部署主题</h2><p>具体流程：</p>
-<h3 id="步骤-1：安装-Hexo"><a href="#步骤-1：安装-Hexo" class="headerlink" title="步骤 1：安装 Hexo"></a>步骤 1：安装 Hexo</h3><p>如果你还没有安装 Hexo，请先安装：<br>npm install -g hexo-cli</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>步骤 2：创建一个新的 Hexo 项目</p>
-<p>在你的工作目录中创建一个新的 Hexo 项目：<br>hexo init myblog<br>cd myblog<br>npm install</p>
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p>步骤 3：选择并下载一个 Hexo 主题</p>
-<p>你可以从 Hexo 官方主题网站 或者其他第三方网站选择一个你喜欢的主题。以下是安装主题的示例：<br>打开主题的 GitHub 页面，找到下载地址。<br>在 Hexo 项目的根目录下，克隆主题仓库：(注意将对应的参数替换成自己的)<br>git clone <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-theme-landscape">https://github.com/hexojs/hexo-theme-landscape</a> themes/landscape</p>
-<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><p>步骤 4：修改 Hexo 配置文件</p>
-<p>在 Hexo 项目的根目录下找到 _config.yml 文件，打开并修改 theme 字段为你下载的主题名称：</p>
-<h4 id="Hexo-Configuration"><a href="#Hexo-Configuration" class="headerlink" title="Hexo Configuration"></a>Hexo Configuration</h4><p>Docs: <a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration.html">https://hexo.io/docs/configuration.html</a></p>
-<p>Source: <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/">https://github.com/hexojs/hexo/</a></p>
-<h4 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h4><p>title: Huangyingyuan’s new Blog</p>
-<p>subtitle: ‘Welcome to My Blog’</p>
-<p>description: ‘programming study’</p>
-<p>author: Hungyingyuan</p>
-<p>language: zh-CN</p>
-<p>timezone: ‘Asia/Shanghai’</p>
-<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><p>url: （自己的GitHub仓库地址）</p>
-<p>permalink: year/:month/:day/:title/</p>
-<p>pretty_urls:</p>
-<p>  trailing_index: false</p>
-<p>  trailing_html: false</p>
-<h4 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h4><p>source_dir: source</p>
-<p>public_dir: public</p>
-<h4 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h4><p>new_post_name: :title.md</p>
-<p>default_layout: post</p>
-<h4 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h4><p>theme: landscape  # 这里修改为你下载的主题名称</p>
-<h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><p>步骤 5：配置主题</p>
-<p>大多数 Hexo 主题都有自己的配置文件。通常，这些配置文件位于主题目录下的 _config.yml 文件中。你可以根据需要修改这些配置文件以定制主题样式和功能。<br>cd themes/landscape<br>打开并编辑 _config.yml 文件，根据需要进行配置。例如：</p>
-<h4 id="Landscape-theme-configuration"><a href="#Landscape-theme-configuration" class="headerlink" title="Landscape theme configuration"></a>Landscape theme configuration</h4><p>menu:<br>  Home: /<br>  Archives: /archives<br>widgets:</p>
-<ul>
-<li>category</li>
-<li>tag</li>
-<li>tagcloud</li>
-<li>recent_posts</li>
-</ul>
-<h4 id="配置其他参数，如社交媒体链接、分页、侧边栏等"><a href="#配置其他参数，如社交媒体链接、分页、侧边栏等" class="headerlink" title="配置其他参数，如社交媒体链接、分页、侧边栏等"></a>配置其他参数，如社交媒体链接、分页、侧边栏等</h4><p>rss: /atom.xml<br>favicon: /favicon.png</p>
-<h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3><p>步骤 6：生成和部署网站</p>
-<p>在完成配置后，回到 Hexo 项目的根目录，生成并部署你的网站：<br>cd ../../<br>hexo clean<br>hexo generate<br>hexo deploy</p>
-<h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3><p>步骤 7：本地查看效果</p>
-<p>你可以在本地启动一个服务器来查看效果：<br>hexo server<br>然后在浏览器中打开 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 查看你的网站。</p>
-<p>这篇新鲜出炉的教程如果我写得不好的话，那还是挺好的</p>
-<h1 id="待完未续……敬请期待。。。。。。。。。。"><a href="#待完未续……敬请期待。。。。。。。。。。" class="headerlink" title="待完未续……敬请期待。。。。。。。。。。"></a>待完未续……敬请期待。。。。。。。。。。</h1><h2 id="看到都看到这里了，微信一键发个红包，支付宝也不介意"><a href="#看到都看到这里了，微信一键发个红包，支付宝也不介意" class="headerlink" title="看到都看到这里了，微信一键发个红包，支付宝也不介意.."></a>看到都看到这里了，微信一键发个红包，支付宝也不介意..</h2>
+            欢迎学习如何创建属于自己的Blog
             
         </div>
     </div>
@@ -349,7 +214,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Blog/" style="color: #00a596">Blog</a>
+            <a href="/tags/Blog/" style="color: #03a9f4">Blog</a>
         </span>
         
     </div>
@@ -389,7 +254,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%B0%E5%BD%95%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%88%91%E4%BC%9A%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E5%90%8E%E7%BB%AD%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9/" style="color: #ffa2c4">记录回归，我会持续更新后续的学习内容</a>
+            <a href="/tags/%E8%AE%B0%E5%BD%95%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%88%91%E4%BC%9A%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E5%90%8E%E7%BB%AD%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9/" style="color: #00a596">记录回归，我会持续更新后续的学习内容</a>
         </span>
         
     </div>
