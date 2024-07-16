@@ -183,6 +183,185 @@
         
 
 <div class="post">
+    <a href="/year/07/16/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/16
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p> 语法大多数都是使用命令行的形式来使用Linux系统，所以我们借助FinalShell来进行操作</p>
+<h2 id="如何在FinalShell中去配置Linux系统，实现远程操作"><a href="#如何在FinalShell中去配置Linux系统，实现远程操作" class="headerlink" title="如何在FinalShell中去配置Linux系统，实现远程操作"></a>如何在FinalShell中去配置Linux系统，实现远程操作</h2><p>注意：要先在VM中打开Linux系统，再来用FinalShell来实现远程连接</p>
+<p>1，在VM虚拟机中，在主屏幕右键，打开终端，然后输入ifconfig后，找到ens33，后获取到虚拟机的IP地址</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714390618439-40b011c0-5a98-4f4e-9b2f-e5f1d6e13bed.png#averageHue=%23acacac&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=391&amp;id=uc6a4193f&amp;originHeight=489&amp;originWidth=908&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=202103&amp;status=done&amp;style=none&amp;taskId=uab7fa4c1-5926-4cd0-865c-3060d5e75a5&amp;title=&amp;width=726.4" alt="image.png"></p>
+<p>2，在FinalShell中实现远程虚拟机的连接</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714390785799-16bf7ea5-51ae-41c3-9b3c-d1835e9378d4.png#averageHue=%23f4f4f3&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=391&amp;id=u9c21ba9e&amp;originHeight=489&amp;originWidth=648&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=103859&amp;status=done&amp;style=none&amp;taskId=u79cea48e-ae28-497c-b91c-f077264ba03&amp;title=&amp;width=518.4" alt="image.png"></p>
+<p>2.1，后面就会出现这个界面：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714390826458-ddd587bf-b1b3-44ab-bec3-9808af91bfd4.png#averageHue=%23e1e1e0&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=347&amp;id=ue590aa5f&amp;originHeight=434&amp;originWidth=467&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=80703&amp;status=done&amp;style=none&amp;taskId=uc4f91410-957c-4f6a-a59e-107718f92f5&amp;title=&amp;width=373.6" alt="image.png"></p>
+<p>之后确定之后就配置成功咯</p>
+<h2 id="什么是WSL？"><a href="#什么是WSL？" class="headerlink" title="什么是WSL？"></a>什么是WSL？</h2><h2 id><a href="#" class="headerlink" title></a></h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714391445549-c2c02141-56f5-4358-8bb6-34e58965cfc8.png#averageHue=%23e4d1b5&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=454&amp;id=PpeU7&amp;originHeight=567&amp;originWidth=1173&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=450056&amp;status=done&amp;style=none&amp;taskId=ue9172cba-05d2-481d-be79-c62dd273d5f&amp;title=&amp;width=938.4" alt="image.png"></p>
+<p>相对于VM的话呢，VM是虚拟出来的CPU之类的，而WSL是直连我们电脑的CPU进行操作，会更加直接，高效</p>
+<h2 id="虚拟机快照"><a href="#虚拟机快照" class="headerlink" title="虚拟机快照"></a>虚拟机快照</h2><p>在VM中支持快照：通过快照将当前的虚拟机的状态保存下来，在以后可以通过快照恢复虚拟机到保存的状态</p>
+<p>（相当于撤销功能）</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714392396776-273043d0-cbb2-40d6-a5ff-0a12894e77d6.png#averageHue=%23ece1c8&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=196&amp;id=u4142cb03&amp;originHeight=245&amp;originWidth=561&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=73722&amp;status=done&amp;style=none&amp;taskId=u824f8ff1-07a9-45e9-9866-4c44c9151e7&amp;title=&amp;width=448.8" alt="image.png"></p>
+<p>推荐关机后再创建快照，比较快</p>
+<h3 id="快照使用流程："><a href="#快照使用流程：" class="headerlink" title="快照使用流程："></a>快照使用流程：</h3><h4 id="1，关机-创建"><a href="#1，关机-创建" class="headerlink" title="1，关机-创建"></a>1，关机-创建</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714392739391-0a03e2f2-c61e-40b4-b60d-b1dfc9748598.png#averageHue=%23929292&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=497&amp;id=u1244c830&amp;originHeight=621&amp;originWidth=1280&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=134584&amp;status=done&amp;style=none&amp;taskId=u62bebaa8-72f0-41fc-b643-ed8c5761298&amp;title=&amp;width=1024" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714392784375-5c8ec064-88d3-41f3-ab07-c82b0a084e63.png#averageHue=%23f0f0f0&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=329&amp;id=u5ba6908e&amp;originHeight=411&amp;originWidth=551&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=59944&amp;status=done&amp;style=none&amp;taskId=u6d2c6812-b9a8-466c-9f78-5107b6eb29b&amp;title=&amp;width=440.8" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714392797019-47df26d3-fe6f-4053-b740-abac23619481.png#averageHue=%23ebebea&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=331&amp;id=u6834ed18&amp;originHeight=414&amp;originWidth=571&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=95922&amp;status=done&amp;style=none&amp;taskId=u532caa8d-28bf-459d-b421-0debd0da248&amp;title=&amp;width=456.8" alt="image.png"></p>
+<p>即设置快照完成</p>
+<h4 id="2，恢复-撤销"><a href="#2，恢复-撤销" class="headerlink" title="2，恢复(撤销)"></a>2，恢复(撤销)</h4><p>将虚拟机关机</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714392875610-b322b81d-122f-49b3-808a-407b8aeea9d5.png#averageHue=%23949494&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=509&amp;id=u4f072497&amp;originHeight=636&amp;originWidth=1292&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=172857&amp;status=done&amp;style=none&amp;taskId=u47c38ec6-aaf8-4009-93df-90adf7e8183&amp;title=&amp;width=1033.6" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714392920016-3220e870-161c-4193-ba2a-440ebca1c921.png#averageHue=%23ededed&amp;clientId=u503ecea4-15ca-4&amp;from=paste&amp;height=336&amp;id=u38284bb5&amp;originHeight=420&amp;originWidth=571&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=72069&amp;status=done&amp;style=none&amp;taskId=u45b81e9a-b85c-4c58-adbf-d89dafb44db&amp;title=&amp;width=456.8" alt="image.png"></p>
+<p>即可恢复</p>
+<h2 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h2><p>在windows中，顶级目录可以有多个，如C盘/D盘，而Linux系统的最顶级的目录是/，称为根目录</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714393034629-d7067f1a-0b9c-4350-83a1-543c374444f7.png#averageHue=%23eeecea&amp;clientId=u8cfe88b5-b2d5-4&amp;from=paste&amp;height=292&amp;id=uc752a428&amp;originHeight=365&amp;originWidth=1288&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=216709&amp;status=done&amp;style=none&amp;taskId=udf1ec29e-d8a1-425e-b792-1e923e6a3b6&amp;title=&amp;width=1030.4" alt="image.png"></p>
+<p>文件：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714395562976-7c6779fd-0b4c-4344-a0bf-458c105eb2f0.png#averageHue=%23304a5f&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=238&amp;id=u7b3f22f9&amp;originHeight=297&amp;originWidth=452&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=258223&amp;status=done&amp;style=none&amp;taskId=uc771501b-5d27-456d-965c-a387644ee93&amp;title=&amp;width=361.6" alt="image.png"><br>————————————关于权限内容———————————<br>drwxr-xr-x. 2 huangyingyuan huangyingyuan  22 Jan 11 21:12 Desktop</p>
+<p>首字母d 代表文件夹，- 代表文件，l 表示软连接</p>
+<p>r代表读权限(read)，w代表写权限，x代表执行权限，对黄英源这个用户来说有rwx这三个<br>权力</p>
+<p>r针对文件来说是可查看文件内容，w针对文件表示可修改文件，x针对文件代表可针对文</p>
+<p>件进行小程序执行</p>
+<p>huangyingyuan代表Desktop的所属用户</p>
+<p>huangyingyuan代表	Desktop的所属用户组</p>
+<p>r-x代表用户hunagyingyuan在文件Desktop中有r-x权限</p>
+<p>r-x代表其他用户在Desktop拥有的权限</p>
+<h2 id="Linux的路径描述方式"><a href="#Linux的路径描述方式" class="headerlink" title="Linux的路径描述方式"></a>Linux的路径描述方式</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714393147435-7e553b85-dddc-4dbc-8ff7-999598f96aee.png#averageHue=%23e5e5e5&amp;clientId=u8cfe88b5-b2d5-4&amp;from=paste&amp;height=70&amp;id=uc33fc8b2&amp;originHeight=88&amp;originWidth=734&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=36446&amp;status=done&amp;style=none&amp;taskId=u78f3c00c-ebe2-496d-b032-39829bf3a11&amp;title=&amp;width=587.2" alt="image.png"></p>
+<p>如一下的目录路径表达：</p>
+<p>头一个/表示根目录，后面的/表示层级</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714393224595-106583c4-f7cd-4c31-bc3e-55da3a6d44f6.png#averageHue=%23f7f5dc&amp;clientId=u8cfe88b5-b2d5-4&amp;from=paste&amp;height=42&amp;id=u6485c890&amp;originHeight=52&amp;originWidth=224&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16619&amp;status=done&amp;style=none&amp;taskId=ueb47a261-cdbf-4512-bdf3-07b8003ebd2&amp;title=&amp;width=179.2" alt="image.png"></p>
+<h3 id="路径的分类："><a href="#路径的分类：" class="headerlink" title="路径的分类："></a>路径的分类：</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714394786050-157d2fbc-7b62-4188-965c-625800c34763.png#averageHue=%23e1dbda&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=59&amp;id=ua2b111f8&amp;originHeight=74&amp;originWidth=814&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=58240&amp;status=done&amp;style=none&amp;taskId=u13db06d2-0dea-4b1a-bcda-89b918d5e30&amp;title=&amp;width=651.2" alt="image.png"></p>
+<h3 id="特殊路径符："><a href="#特殊路径符：" class="headerlink" title="特殊路径符："></a>特殊路径符：</h3><p>用来便捷地切换目录</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714394857924-f5b418fa-2d4a-467a-942b-fe81086fabaf.png#averageHue=%23ebebeb&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=135&amp;id=u956a8724&amp;originHeight=169&amp;originWidth=1222&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=84502&amp;status=done&amp;style=none&amp;taskId=u4dda92a4-016f-4ba4-99c8-1b498436aa8&amp;title=&amp;width=977.6" alt="image.png"></p>
+<h2 id="Linux命令入门"><a href="#Linux命令入门" class="headerlink" title="Linux命令入门"></a>Linux命令入门</h2><h3 id="Linux有通用的格式："><a href="#Linux有通用的格式：" class="headerlink" title="Linux有通用的格式："></a>Linux有通用的格式：</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714393438191-b9ac705f-3b1e-490d-9983-04c2ffce7ece.png#averageHue=%23f0efef&amp;clientId=u8cfe88b5-b2d5-4&amp;from=paste&amp;height=373&amp;id=ua00a3205&amp;originHeight=466&amp;originWidth=850&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=156666&amp;status=done&amp;style=none&amp;taskId=ua145013d-d382-4ff5-9aee-6f58c2d3454&amp;title=&amp;width=680" alt="image.png"></p>
+<h3 id="ls命令："><a href="#ls命令：" class="headerlink" title="ls命令："></a>ls命令：</h3><p>列出目录的内容</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714393509210-efdf62a7-a061-4f46-b486-db0e32aac303.png#averageHue=%23ece9e3&amp;clientId=u8cfe88b5-b2d5-4&amp;from=paste&amp;height=261&amp;id=u40206275&amp;originHeight=326&amp;originWidth=1004&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=189538&amp;status=done&amp;style=none&amp;taskId=u92fbad1c-5602-4302-ac27-2c0d4decbbb&amp;title=&amp;width=803.2" alt="image.png"></p>
+<p>操作：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714393578364-20be5025-6027-4530-a99c-e745b8e5a179.png#averageHue=%2327425b&amp;clientId=u8cfe88b5-b2d5-4&amp;from=paste&amp;height=38&amp;id=ube753e26&amp;originHeight=47&amp;originWidth=598&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=38484&amp;status=done&amp;style=none&amp;taskId=u1e0aa0b4-fcd9-45d4-b1eb-dce54bf85b9&amp;title=&amp;width=478.4" alt="image.png"></p>
+<h4 id="a-表示all的意思，列出所有的目录（包括隐藏文件）"><a href="#a-表示all的意思，列出所有的目录（包括隐藏文件）" class="headerlink" title="-a   					        表示all的意思，列出所有的目录（包括隐藏文件）"></a>-a   					        表示all的意思，列出所有的目录（包括隐藏文件）</h4><h4 id="l-以列表的形式去展现内容（展示更多的信息）"><a href="#l-以列表的形式去展现内容（展示更多的信息）" class="headerlink" title="-l     					以列表的形式去展现内容（展示更多的信息）"></a>-l     					以列表的形式去展现内容（展示更多的信息）</h4><p><strong>-h						    实现查看文件的大小单位的大小（注意！不能单独使用，要结合-a之类的</strong><br>**使用）			**</p>
+<hr>
+<p>可选的语法是可以结合使用的，同时实现功能（编写的顺序不做要求），如</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/jpeg/43278603/1714394045271-f75c83b8-a776-4f9e-aed7-05d3ba1c35bc.jpeg#averageHue=%23c4c4be&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=705&amp;id=u5e5d8d6b&amp;originHeight=881&amp;originWidth=1597&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=497359&amp;status=done&amp;style=none&amp;taskId=u5c585057-7924-43f3-bd3d-fa5a2cb1ea2&amp;title=&amp;width=1277.6" alt="6cc0cfb30f3daa0401aff212f9e950c.jpg"></p>
+<h3 id="拓展：关于HOME目录的介绍"><a href="#拓展：关于HOME目录的介绍" class="headerlink" title="拓展：关于HOME目录的介绍"></a>拓展：关于HOME目录的介绍</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714393688974-b34bbb62-7061-4780-af92-f10133078a75.png#averageHue=%23dfdfdf&amp;clientId=u8cfe88b5-b2d5-4&amp;from=paste&amp;height=31&amp;id=u259de745&amp;originHeight=39&amp;originWidth=590&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=15307&amp;status=done&amp;style=none&amp;taskId=u1f475a97-9ba3-4245-b82a-60593e70ea0&amp;title=&amp;width=472" alt="image.png"></p>
+<h3 id="目录切换命令："><a href="#目录切换命令：" class="headerlink" title="目录切换命令："></a>目录切换命令：</h3><p>cd/pwd</p>
+<h4 id="cd命令："><a href="#cd命令：" class="headerlink" title="cd命令："></a>cd命令：</h4><p>切换目录</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714394497870-b6255658-6136-4df0-977d-70de526c5973.png#averageHue=%23eeeeee&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=226&amp;id=ue8a0a3d0&amp;originHeight=282&amp;originWidth=897&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=98947&amp;status=done&amp;style=none&amp;taskId=u738959ad-1a82-4a99-a348-c0b852f6d7b&amp;title=&amp;width=717.6" alt="image.png"></p>
+<h4 id="pwd命令："><a href="#pwd命令：" class="headerlink" title="pwd命令："></a>pwd命令：</h4><p>查看当前的工作目录</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714394558488-96923688-d5a2-4b2d-8ed6-ac002bdcc9b9.png#averageHue=%23ece2df&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=338&amp;id=uca521313&amp;originHeight=422&amp;originWidth=576&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=141219&amp;status=done&amp;style=none&amp;taskId=u2ad2591e-e44f-4038-a321-8e38211d271&amp;title=&amp;width=460.8" alt="image.png"></p>
+<h3 id="touch命令："><a href="#touch命令：" class="headerlink" title="touch命令："></a>touch命令：</h3><p>创建新的文件</p>
+<h3 id="mkdir命令"><a href="#mkdir命令" class="headerlink" title="mkdir命令:"></a>mkdir命令:</h3><h4 id="一次性创建一个文件的语法：mkdir"><a href="#一次性创建一个文件的语法：mkdir" class="headerlink" title="一次性创建一个文件的语法：mkdir"></a>一次性创建一个文件的语法：mkdir</h4><p>创建新的目录路径(文件夹)</p>
+<p>注意：操作必须在HOME的目录下操作</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714395032660-2c22dfd3-7e4e-4482-a364-2ad83bf0f3b7.png#averageHue=%23eeeeed&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=182&amp;id=u736c7289&amp;originHeight=228&amp;originWidth=889&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=114870&amp;status=done&amp;style=none&amp;taskId=uaec3a03b-e80a-4f0d-b0fd-329697e64dc&amp;title=&amp;width=711.2" alt="image.png"></p>
+<h4 id="一次性创建多个文件的语法：mkdir-p"><a href="#一次性创建多个文件的语法：mkdir-p" class="headerlink" title="一次性创建多个文件的语法：mkdir -p"></a>一次性创建多个文件的语法：mkdir -p</h4><p>-p                            选项即是，同时创建多个文件夹</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714395222488-4e089292-f237-4ae8-9dce-26ba86aa3497.png#averageHue=%23324e62&amp;clientId=u53ac9911-547e-4&amp;from=paste&amp;height=33&amp;id=uca9117ae&amp;originHeight=41&amp;originWidth=385&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=29186&amp;status=done&amp;style=none&amp;taskId=u9e87ae28-3ce4-4c0b-8de9-01c0e20c540&amp;title=&amp;width=308" alt="image.png"></p>
+<h3 id="查看文件内容："><a href="#查看文件内容：" class="headerlink" title="查看文件内容："></a>查看文件内容：</h3><h4 id="cat命令："><a href="#cat命令：" class="headerlink" title="cat命令："></a>cat命令：</h4><p>从头查看文件的所有内容</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714395673507-33d41ce4-5424-4b87-997c-976aaa3e7de8.png#averageHue=%23f1f1ee&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=203&amp;id=ucb4e044b&amp;originHeight=254&amp;originWidth=1141&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=185162&amp;status=done&amp;style=none&amp;taskId=u52ce2f80-1818-467b-8178-f541f0c81bf&amp;title=&amp;width=912.8" alt="image.png"></p>
+<p>其实cat也可以显示行号的，cat -n Linux路径</p>
+<h4 id="tac命令："><a href="#tac命令：" class="headerlink" title="tac命令："></a>tac命令：</h4><p>从尾查看文件内容</p>
+<h4 id="tail命令："><a href="#tail命令：" class="headerlink" title="tail命令："></a>tail命令：</h4><p>查看文件的尾部的num行信息</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714803822476-a7dbb0c1-5542-44fc-978c-44bdf1fe8ee3.png#averageHue=%23edecec&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=256&amp;id=u2be78f24&amp;originHeight=320&amp;originWidth=1029&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=154986&amp;status=done&amp;style=none&amp;taskId=u110b9a39-61bb-4341-a0f6-d2e5a5ff014&amp;title=&amp;width=823.2" alt="image.png"></p>
+<h3 id="more命令："><a href="#more命令：" class="headerlink" title="more命令："></a>more命令：</h3><p>查看文件的内容(不过是支持分页操作，方便在内容多的情况下使用)</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714395755899-41430732-72a6-48a9-a820-ecddbe369f49.png#averageHue=%23f3f3f2&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=166&amp;id=u1e5c66d8&amp;originHeight=208&amp;originWidth=1117&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=95860&amp;status=done&amp;style=none&amp;taskId=u06db9e18-97c2-4771-8e4c-948ca406381&amp;title=&amp;width=893.6" alt="image.png"></p>
+<p>一些操作：</p>
+<ul>
+<li><p><input checked disabled type="checkbox"> 
+向下查找关键字：/字符串</p>
+</li>
+<li><p><input checked disabled type="checkbox"> 
+:f 显示文件名及目前显示的行数</p>
+</li>
+</ul>
+<p>翻页和退出查看的操作：</p>
+<ul>
+<li><p><input checked disabled type="checkbox"> 
+在查看过程中，通过空格翻页</p>
+</li>
+<li><p><input checked disabled type="checkbox"> 
+通过q退出查看</p>
+</li>
+</ul>
+<h3 id="cp命令："><a href="#cp命令：" class="headerlink" title="cp命令："></a>cp命令：</h3><p>复制文件</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title></a><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714396151507-8f00998c-2486-4648-ba0f-34b892659643.png#averageHue=%23ececec&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=187&amp;id=ue62a790b&amp;originHeight=234&amp;originWidth=700&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=82736&amp;status=done&amp;style=none&amp;taskId=u871e644c-2baf-4200-81ca-e73ab8534e9&amp;title=&amp;width=560" alt="image.png"></h3><p>_语法即:cp [-r] 被复制的文件夹或者文件   要复制去的地方  _ </p>
+<h3 id="mv命令："><a href="#mv命令：" class="headerlink" title="mv命令："></a>mv命令：</h3><p>移除文件（注意：如果移除到的文件夹存在的话，则实现移动功能；若不存在，则实现改名功能）</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714396466405-e3d2dd9c-997d-462d-9bbc-d724e3e858fc.png#averageHue=%23ededed&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=141&amp;id=ua428c66b&amp;originHeight=176&amp;originWidth=987&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=71599&amp;status=done&amp;style=none&amp;taskId=ue0e99b10-8096-4fd4-b75b-082938bda34&amp;title=&amp;width=789.6" alt="image.png"></p>
+<h3 id="rm命令："><a href="#rm命令：" class="headerlink" title="rm命令："></a>rm命令：</h3><p>删除文件和文件夹（用于一次性删除多个文件/文件夹，文件夹之间用空格隔开）</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714396499024-e9d1dc13-ab0b-4115-991f-ff8a68f88221.png#averageHue=%23ededed&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=262&amp;id=u0020cf64&amp;originHeight=328&amp;originWidth=857&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=123142&amp;status=done&amp;style=none&amp;taskId=u90dcb069-9098-42d0-91e1-4db5d5de7c0&amp;title=&amp;width=685.6" alt="image.png"></p>
+<p>注意  -f的话，只有在最高级的root身份下，才能执行-f</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714396969626-e8a3fafc-de74-4bd3-8d05-af324667c13e.png#averageHue=%23ededed&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=109&amp;id=uc90c9cb6&amp;originHeight=136&amp;originWidth=1175&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=73615&amp;status=done&amp;style=none&amp;taskId=uf8a8e4e6-e340-4538-8f43-d7da58d45a8&amp;title=&amp;width=940" alt="image.png"></p>
+<h4 id="rm支持通配符的使用："><a href="#rm支持通配符的使用：" class="headerlink" title="rm支持通配符的使用："></a>rm支持通配符的使用：</h4><p>模糊识别</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714396628766-95679dcf-c405-4984-9aac-6d300aae1d1f.png#averageHue=%23ecebea&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=181&amp;id=u342dbbeb&amp;originHeight=226&amp;originWidth=639&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=94679&amp;status=done&amp;style=none&amp;taskId=u6838f235-c074-4fd0-9874-b8d43238eeb&amp;title=&amp;width=511.2" alt="image.png"></p>
+<h3 id="查找命令："><a href="#查找命令：" class="headerlink" title="查找命令："></a>查找命令：</h3><h4 id="which查找命令："><a href="#which查找命令：" class="headerlink" title="which查找命令："></a>which查找命令：</h4><p>查找程序文件的路径存放在哪里</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714397199519-4861cb50-bca8-47f4-b786-d62ad6dc589e.png#averageHue=%23334c60&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=286&amp;id=ufc3a2b61&amp;originHeight=358&amp;originWidth=348&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=187080&amp;status=done&amp;style=none&amp;taskId=u79bed7fa-c3da-4c56-8973-6dd2dcc19ca&amp;title=&amp;width=278.4" alt="image.png"></p>
+<h4 id="find命令："><a href="#find命令：" class="headerlink" title="find命令："></a>find命令：</h4><p>相当于windows中的这里的查找功能</p>
+<p>也支持通配符查找</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714397355827-b652cb9d-f8a9-49a2-9e7d-d63e161514ee.png#averageHue=%234c4b4a&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=125&amp;id=ubdeb004f&amp;originHeight=156&amp;originWidth=954&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=61458&amp;status=done&amp;style=none&amp;taskId=u1f4bd015-3e90-42e5-8f73-9720846de22&amp;title=&amp;width=763.2" alt="image.png"></p>
+<h5 id="按文件名查找文件："><a href="#按文件名查找文件：" class="headerlink" title="按文件名查找文件："></a>按文件名查找文件：</h5><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714397409054-e980cad1-1309-4f87-abdf-5528d8a79300.png#averageHue=%23e9e8e8&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=65&amp;id=uebe8e119&amp;originHeight=81&amp;originWidth=720&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=44508&amp;status=done&amp;style=none&amp;taskId=u5853e226-e237-43bc-b51f-830dc0a231e&amp;title=&amp;width=576" alt="image.png"></p>
+<p>操作如下：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714397457678-316486c3-e1e9-4e28-88f7-e99a57f556fd.png#averageHue=%23345167&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=197&amp;id=uccd23d6e&amp;originHeight=246&amp;originWidth=473&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=196611&amp;status=done&amp;style=none&amp;taskId=u207dd150-6f90-4166-ac72-cd6a7ccc887&amp;title=&amp;width=378.4" alt="image.png"></p>
+<h5 id="按文件的大小去搜索："><a href="#按文件的大小去搜索：" class="headerlink" title="按文件的大小去搜索："></a>按文件的大小去搜索：</h5><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714397535888-986c2c17-8ed4-4129-ab91-57651a99de75.png#averageHue=%23f3f3f3&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=150&amp;id=uc1a3d6f4&amp;originHeight=188&amp;originWidth=709&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=47844&amp;status=done&amp;style=none&amp;taskId=u205b7975-bf44-42a0-b2b5-2707c6f293b&amp;title=&amp;width=567.2" alt="image.png"></p>
+<p>操作：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714397552841-203c840b-7142-408b-ba44-b507f797d194.png#averageHue=%23ededed&amp;clientId=u50f1ba11-cdeb-4&amp;from=paste&amp;height=141&amp;id=u1f30f042&amp;originHeight=176&amp;originWidth=513&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=35450&amp;status=done&amp;style=none&amp;taskId=uf8887e3c-f2f2-482b-8206-89369845975&amp;title=&amp;width=410.4" alt="image.png"></p>
+<h3 id="grep过滤命令："><a href="#grep过滤命令：" class="headerlink" title="grep过滤命令："></a>grep过滤命令：</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714802620551-98457452-ab32-4626-9bab-3c20fad5bc8f.png#averageHue=%23eeeded&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=189&amp;id=u1b4216d3&amp;originHeight=236&amp;originWidth=1490&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=162569&amp;status=done&amp;style=none&amp;taskId=u8c35e4fd-e801-40cd-96ec-f2508476404&amp;title=&amp;width=1192" alt="image.png"></p>
+<h3 id="wc统计命令："><a href="#wc统计命令：" class="headerlink" title="wc统计命令："></a>wc统计命令：</h3><p>可以用来统计单词的数量或者文件内容的行数等</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714802833637-49be42b0-9bfb-4e10-8cb8-01ce7301fde5.png#averageHue=%23f5f4f3&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=289&amp;id=u2cdcb3eb&amp;originHeight=361&amp;originWidth=818&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=139488&amp;status=done&amp;style=none&amp;taskId=u977ba485-0cb6-4271-8f65-4f2e4d2bc09&amp;title=&amp;width=654.4" alt="image.png"></p>
+<p>如果什么都不写就运行的话，就会逐个输出对应的 -c -m -l -w</p>
+<h3 id="管道符-："><a href="#管道符-：" class="headerlink" title="管道符  |  ："></a>管道符  |  ：</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714803040213-d77e1ebf-c434-4e80-ac78-6fc3df2c119c.png#averageHue=%23d6d6d6&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=34&amp;id=u65632dc8&amp;originHeight=42&amp;originWidth=940&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=46026&amp;status=done&amp;style=none&amp;taskId=u4a23ef55-c90a-4782-a51c-892464e6381&amp;title=&amp;width=752" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714803231880-69c297b1-2b19-4b1a-bbe1-14382819da3d.png#averageHue=%232a3f53&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=74&amp;id=u4f6b6e1a&amp;originHeight=92&amp;originWidth=520&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=78884&amp;status=done&amp;style=none&amp;taskId=u6226555e-fc3e-4a38-a02d-fc5fc318c6d&amp;title=&amp;width=416" alt="image.png"></p>
+<h3 id="echo："><a href="#echo：" class="headerlink" title="echo："></a>echo：</h3><p>在命令行中输出指定内容</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714803421661-972fd5d1-38e0-4cb8-862c-e83c016697fd.png#averageHue=%23ededed&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=87&amp;id=u9ddb3b02&amp;originHeight=109&amp;originWidth=1073&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=55144&amp;status=done&amp;style=none&amp;taskId=ued6ebb56-abfa-4aab-bab7-bdb4d3cf689&amp;title=&amp;width=858.4" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714803444061-856782e7-32de-4bab-a4ef-138d6ef3d3b2.png#averageHue=%23f1f4f2&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=98&amp;id=uead40038&amp;originHeight=122&amp;originWidth=603&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=69374&amp;status=done&amp;style=none&amp;taskId=u6a4e2808-1629-42c3-9a52-ea48fb7bbe3&amp;title=&amp;width=482.4" alt="image.png"></p>
+<h3 id="反引号-："><a href="#反引号-：" class="headerlink" title="反引号 ："></a>反引号<code> </code>：</h3><p>将其内容作为命令输出</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714803533782-601a3b14-d79f-492a-aa78-6faf710e9331.png#averageHue=%23e8e8e8&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=146&amp;id=ufc0b1160&amp;originHeight=182&amp;originWidth=884&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=105885&amp;status=done&amp;style=none&amp;taskId=uabffe53e-9f09-4be7-a3e0-7b878a765fd&amp;title=&amp;width=707.2" alt="image.png"></p>
+<h3 id="重定向符-或"><a href="#重定向符-或" class="headerlink" title="重定向符>或>>:"></a>重定向符&gt;或&gt;&gt;:</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714803674220-ea50a320-9cf4-4a3d-9bfe-3dd6e1d3e7be.png#averageHue=%23e6e4e3&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=100&amp;id=ua55ca01b&amp;originHeight=125&amp;originWidth=904&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=74744&amp;status=done&amp;style=none&amp;taskId=ucf7cea4f-e251-43ee-a9e5-809cbad72f3&amp;title=&amp;width=723.2" alt="image.png"></p>
+<h3 id="vi-vim编辑器-文件的编辑-："><a href="#vi-vim编辑器-文件的编辑-：" class="headerlink" title="vi/vim编辑器(文件的编辑)："></a>vi/vim编辑器(文件的编辑)：</h3><p>通常使用   vim 文件名 </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714804049991-5ecb47dc-1089-4b82-a4cc-3cb9e54c1318.png#averageHue=%23fdfefe&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=186&amp;id=u728f4b6c&amp;originHeight=232&amp;originWidth=1649&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=293098&amp;status=done&amp;style=none&amp;taskId=ud8e21008-d0ae-4144-b100-d2714bfbc1e&amp;title=&amp;width=1319.2" alt="image.png"></p>
+<p>移动光标：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714959015431-01b122ba-037d-4ff4-9958-6d8e0d8e31a8.png#averageHue=%23f3f3d6&amp;from=url&amp;id=v3OCQ&amp;originHeight=574&amp;originWidth=1574&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=135627&amp;status=done&amp;style=none&amp;title=" alt="IMG_6202.PNG"></p>
+<h4 id="命令模式："><a href="#命令模式：" class="headerlink" title="命令模式："></a>命令模式：</h4><p>命令模式下，所敲的按键编辑器都理解为命令，以命令驱动执行不同的功能，此模型下，不能自由地对文本进行编</p>
+<p>辑</p>
+<h4 id="输入模式："><a href="#输入模式：" class="headerlink" title="输入模式："></a>输入模式：</h4><p>也就是所谓的编辑模式，插入模式，此模式下，可以对文本内容进行自由编辑</p>
+<h4 id="底线命令模式："><a href="#底线命令模式：" class="headerlink" title="底线命令模式："></a>底线命令模式：</h4><h4 id="-2"><a href="#-2" class="headerlink" title></a></h4><p>以：开始，通常用于文件的保存和退出</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714804353032-07761fef-6796-41b3-8c73-c4b7b179035f.png#averageHue=%23e6e5e3&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=374&amp;id=ueb621fa0&amp;originHeight=468&amp;originWidth=653&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=143420&amp;status=done&amp;style=none&amp;taskId=u98951b4f-0449-494d-b872-589755b449b&amp;title=&amp;width=522.4" alt="image.png"></p>
+<h4 id="在命令模式下的快捷键："><a href="#在命令模式下的快捷键：" class="headerlink" title="在命令模式下的快捷键："></a>在命令模式下的快捷键：</h4><h4 id="-3"><a href="#-3" class="headerlink" title></a></h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714804660134-adc6b30c-7510-4aee-9a31-6063fc62042f.png#averageHue=%23f2e7d3&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=418&amp;id=u42208a25&amp;originHeight=522&amp;originWidth=1066&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=319981&amp;status=done&amp;style=none&amp;taskId=ub4290e04-facd-4e12-8a53-3be81fab913&amp;title=&amp;width=852.8" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714804860042-8baac775-8b85-4442-ad3a-f1819f0f8ff2.png#averageHue=%23efe5df&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=418&amp;id=u8f90222a&amp;originHeight=523&amp;originWidth=725&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=252860&amp;status=done&amp;style=none&amp;taskId=ue46a6849-0f37-4c06-9703-95dcd3424f9&amp;title=&amp;width=580" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714804915318-be4111d0-31ab-417c-b283-836909a720ab.png#averageHue=%23f4f1eb&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=469&amp;id=u28fb4375&amp;originHeight=586&amp;originWidth=682&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=260809&amp;status=done&amp;style=none&amp;taskId=ue7cd40b2-6c8c-41f1-b72e-aa51c3f7c70&amp;title=&amp;width=545.6" alt="image.png"></p>
+<h4 id="在底线命令模式下的快捷键："><a href="#在底线命令模式下的快捷键：" class="headerlink" title="在底线命令模式下的快捷键："></a>在底线命令模式下的快捷键：</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714805039844-3adf72cf-9d45-41c3-9bb0-36543eda63fa.png#averageHue=%23f3e6dc&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=305&amp;id=u98d9af2c&amp;originHeight=381&amp;originWidth=779&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=187304&amp;status=done&amp;style=none&amp;taskId=u9ddc856f-096a-4a37-9e86-fb0acb97463&amp;title=&amp;width=623.2" alt="image.png"></p>
+<h2 id="Linux用户和权限："><a href="#Linux用户和权限：" class="headerlink" title="Linux用户和权限："></a>Linux用户和权限：</h2><h3 id="root用户-超级最大管理员-："><a href="#root用户-超级最大管理员-：" class="headerlink" title="root用户(超级最大管理员)："></a>root用户(超级最大管理员)：</h3><p>为什么要使用root用户来执行操作？</p>
+<p>答：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714805343880-6f4a01d4-33ae-48b4-93bd-e98e03cf1ccd.png#averageHue=%23f9ecde&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=94&amp;id=u1ee5a41d&amp;originHeight=117&amp;originWidth=1152&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=159716&amp;status=done&amp;style=none&amp;taskId=u0e633970-956e-47b0-ab1f-76acdae3748&amp;title=&amp;width=921.6" alt="image.png"></p>
+<h3 id="切换用户："><a href="#切换用户：" class="headerlink" title="切换用户："></a>切换用户：</h3><p>su [-u] [用户名]    (如果没写用户名，则默认切换到root用户)</p>
+<h3 id="sudo命令："><a href="#sudo命令：" class="headerlink" title="sudo命令："></a>sudo命令：</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714805538091-ac603ee2-ade6-404c-9d1e-edbd30082bca.png#averageHue=%23fefdfe&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=202&amp;id=u079e065a&amp;originHeight=253&amp;originWidth=1026&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=173443&amp;status=done&amp;style=none&amp;taskId=ua9e10cd9-cc87-4fe5-9d6b-e587196b4cf&amp;title=&amp;width=820.8" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714805568615-cc7417a2-f145-4cd0-8916-1063a291e8c9.png#averageHue=%23f4faf9&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=197&amp;id=u0712d1c9&amp;originHeight=246&amp;originWidth=1172&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=162403&amp;status=done&amp;style=none&amp;taskId=u16b9a8f7-a8d7-4ecc-a0b1-7b1396d852e&amp;title=&amp;width=937.6" alt="image.png"></p>
+<p>如何为普通用户配置sudo认证呢？</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714805645681-fdb30140-0cd9-4604-a820-1f951f3fc05d.png#averageHue=%23efefef&amp;clientId=ud4d15fef-b6ca-4&amp;from=paste&amp;height=227&amp;id=u36229d22&amp;originHeight=284&amp;originWidth=1119&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=158854&amp;status=done&amp;style=none&amp;taskId=u7287bc55-41ab-4009-b65b-5d22c784e67&amp;title=&amp;width=895.2" alt="image.png"></p>
+<h3 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h3><p>注意：必须在root下执行</p>
+<h4 id="创建用户组："><a href="#创建用户组：" class="headerlink" title="创建用户组："></a>创建用户组：</h4><p>groupadd  用户组名 </p>
+<h4 id="删除用户组："><a href="#删除用户组：" class="headerlink" title="删除用户组："></a>删除用户组：</h4><p>groupdel  用户组名</p>
+<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><h4 id="创建用户："><a href="#创建用户：" class="headerlink" title="创建用户："></a>创建用户：</h4><p>useradd 用户名  [-g -d]<br><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714996395581-592d2f6b-f6e9-4090-9c6c-2789bee0455d.png#averageHue=%23ededed&amp;clientId=uaf024021-457d-4&amp;from=paste&amp;height=67&amp;id=ua4ef5d0e&amp;originHeight=84&amp;originWidth=1512&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=102469&amp;status=done&amp;style=none&amp;taskId=u80b326ab-efa3-495a-b20b-f6bddbd5f70&amp;title=&amp;width=1209.6" alt="image.png"></p>
+<h4 id="删除用户："><a href="#删除用户：" class="headerlink" title="删除用户："></a>删除用户：</h4><p>userdel [-r] 用户名</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1714997275967-4366cab2-df84-43dd-bac6-26bbec9c0105.png#averageHue=%23e4e4e4&amp;clientId=uaf024021-457d-4&amp;from=paste&amp;height=31&amp;id=uc26c688b&amp;originHeight=39&amp;originWidth=947&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=31369&amp;status=done&amp;style=none&amp;taskId=u33c3a13f-1d02-4fe6-8b32-1287bdd9da2&amp;title=&amp;width=757.6" alt="image.png"></p>
+<h4 id="查看用户所属组："><a href="#查看用户所属组：" class="headerlink" title="查看用户所属组："></a>查看用户所属组：</h4><p>id [用户名]</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/year/07/16/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/year/07/15/%E2%80%9C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%9D%E4%B9%8B-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83-1/">
         <h2 class="post-title">“机器学习”之  从入门到放弃(1)</h2>
     </a>
@@ -214,7 +393,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="color: #00a596">机器学习</a>
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="color: #03a9f4">机器学习</a>
         </span>
         
     </div>
@@ -253,7 +432,7 @@
         
         <span class="tag">
             
-            <a href="/tags/study/" style="color: #ff7d73">study</a>
+            <a href="/tags/study/" style="color: #00bcd4">study</a>
         </span>
         
     </div>
@@ -293,7 +472,7 @@
         
         <span class="tag">
             
-            <a href="/tags/life/" style="color: #00a596">life</a>
+            <a href="/tags/life/" style="color: #03a9f4">life</a>
         </span>
         
     </div>
