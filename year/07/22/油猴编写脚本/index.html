@@ -177,7 +177,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" style="color: #ff7d73">
+                <a href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" style="color: #00a596">
                     奇葩那些事儿
                 </a>
             </span>
@@ -192,20 +192,20 @@
 <p>通常我们在·网页端的CSDN中，不登陆账号的话，是禁止复制代码内容的，给我们带来了层层不便，今天我</p>
 <p>们就硬气点，自己编写脚本实现不应登录就可以复制代码</p>
 <p>1，在浏览器安装油猴（搜索”篡改猴“）</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721613163684-56b37f34-51d5-4dda-8064-91abbdc54179.png#averageHue=%23c0c6be&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=276&amp;id=ucfdd567b&amp;originHeight=345&amp;originWidth=652&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=46244&amp;status=done&amp;style=none&amp;taskId=u07d29aca-2392-49db-9dfc-7c77336325f&amp;title=&amp;width=521.6" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(1).png?raw=true" alt="image.png"></p>
 <p>2，进入到主页(这里我之前安装的脚本是”用来刷网课的，实现网课自由好吧。唯一缺点是要充值，等有实力了，</p>
 <p>我也自己写自动刷网课的脚本，这样子我也可以实现财富自由了~“)</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721613549840-d9749ced-3e13-4e24-8a0d-e4623c94e905.png#averageHue=%23ededec&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=406&amp;id=uda27760a&amp;originHeight=508&amp;originWidth=1871&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=51292&amp;status=done&amp;style=none&amp;taskId=ucd6be0c2-3018-40d1-947c-81006bef663&amp;title=&amp;width=1496.8" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(2).png?raw=true" alt="image.png"></p>
 <p>3，话不多说。直接进入到CSDN界面，开始操作好吧</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721613843589-0967d07c-bd1d-4282-b548-f6ca870690c1.png#averageHue=%23e7cfa3&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=629&amp;id=u5036e3ac&amp;originHeight=786&amp;originWidth=1739&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=241417&amp;status=done&amp;style=none&amp;taskId=u06a575e6-8798-4956-af31-06daa8d4d74&amp;title=&amp;width=1391.2" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(3).png?raw=true" alt="image.png"></p>
 <p>4，浏览器提供的接口contentediable(是否可以被编辑)</p>
 <p>contentediable的默认值是False，也就是默认是不可以编辑的，我们将其False偷偷摸摸地设置为True，就可以编<br>辑了</p>
 <p>接下来你懂的~~~就是把CSDN的contentediable的Flase改成True就可以实现不用登录就可以偷取别人的代码了</p>
 <p>5，编写修改代码</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//获取所有代码块</span><br><span class="line">    let codes = document.querySelectorAll("code");</span><br><span class="line">    //循环遍历所有(parameten)c:HTMLElement</span><br><span class="line">    codes.forEach(c =&gt;{</span><br><span class="line">        //设置代码块可以编辑，从而实现可复制</span><br><span class="line">        c.contentEditable ="true";</span><br><span class="line">    });</span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure>
 
-<p>6，点开脚本输入界面<br><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721614659125-0103cf43-2e1b-47d4-ae60-9821a109804b.png#averageHue=%23e8e8e7&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=541&amp;id=ufb3f6384&amp;originHeight=676&amp;originWidth=1844&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=57313&amp;status=done&amp;style=none&amp;taskId=u0b973046-a8d4-443c-be45-ad3fefbb8dc&amp;title=&amp;width=1475.2" alt="image.png"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721615079580-f164e5b6-7d10-4753-a7c5-c2fa837def06.png#averageHue=%23ebeae5&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=186&amp;id=u33703682&amp;originHeight=232&amp;originWidth=904&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=137231&amp;status=done&amp;style=none&amp;taskId=u8e78854b-c93f-4a5a-9411-74bb621f7ce&amp;title=&amp;width=723.2" alt="image.png"></p>
+<p>6，点开脚本输入界面<br><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(4).png?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(5).png?raw=true" alt="image.png"></p>
 <p>这里的CSDN的网址是：<a target="_blank" rel="noopener" href="https://blog.csdn.net/*/article/details/*">https://blog.csdn.net/<em>/article/details/</em></a></p>
 <p>7，获取网页的图标</p>
 <p>7.1	F12进入网页的开发者模式</p>
@@ -214,13 +214,13 @@
 <p>7.4	刷新界面</p>
 <p>7.5	找到.ico文件</p>
 <p>7.8	点击“标头”，复制链接</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721615326368-20324010-ac73-409c-a0ff-d7df753d61e4.png#averageHue=%23c6e5e5&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=767&amp;id=uf21aee3b&amp;originHeight=959&amp;originWidth=1849&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=480515&amp;status=done&amp;style=none&amp;taskId=ucf24c4b1-bc63-424f-9752-6114a7d2fb4&amp;title=&amp;width=1479.2" alt="image.png"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721615513924-ff111541-393f-4dd9-acd6-950eb90b93ac.png#averageHue=%23406eb7&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=370&amp;id=uffade3db&amp;originHeight=463&amp;originWidth=695&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=61702&amp;status=done&amp;style=none&amp;taskId=u42e00cac-56c7-4b57-ab36-a42cc5d83ab&amp;title=&amp;width=556" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(6).png?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(7).png?raw=true" alt="image.png"></p>
 <p>8，将自己写的代码放入脚本中</p>
 <p>将Your codes 替换成自己的代码</p>
 <p>然后点击开发者模式，选择自动缩进</p>
-<p>然后 保存(Ctrl+S)<br><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721616249543-40eed718-2ed8-48af-bf3b-c0a2ae9c9377.png#averageHue=%23e6e4e3&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=550&amp;id=uc9ddcf1b&amp;originHeight=687&amp;originWidth=944&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=43986&amp;status=done&amp;style=none&amp;taskId=u33c140d9-cd2e-4c6e-b9c2-9193b6b024f&amp;title=&amp;width=755.2" alt="image.png"></p>
-<p>RES结果展示:<br><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721616773400-44c0be3c-d9aa-463c-9769-0ac08ae5ec03.png#averageHue=%23ede2d1&amp;clientId=u03fe25d1-05ec-4&amp;from=paste&amp;height=515&amp;id=u479427e2&amp;originHeight=644&amp;originWidth=1383&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=314252&amp;status=done&amp;style=none&amp;taskId=u78db312a-0e49-48cb-98c6-ddd817b9755&amp;title=&amp;width=1106.4" alt="image.png"></p>
+<p>然后 保存(Ctrl+S)<br><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(8).png?raw=true" alt="image.png"></p>
+<p>RES结果展示:<br><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(9).png?raw=true" alt="image.png"></p>
 
     </div>
     
