@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>Huangyingyuan&#39;s Life Blog</title>
+    <title>计算机操作系统的那些事儿 | Huangyingyuan&#39;s Life Blog</title>
     <meta name="author" content="Hungyingyuan" />
     <meta name="description" content="Wishing you a pleasant day" />
     <meta name="keywords" content="" />
@@ -42,7 +42,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -154,40 +156,11 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/background.jpg"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>Huangyingyuan&#39;s Life Blog</h1>
-                <h3>Welcome to My Blog</h3>
-                <h5>Wishing you a pleasant day</h5>
-            </div>
-        </span>
+            <div class="article">
+    <div>
+        <h1>计算机操作系统的那些事儿</h1>
     </div>
-</div>
-<div
-    id="home-posts-wrap"
-    ref="homePostsWrap"
-    true
->
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">
-        <h2 class="post-title">计算机操作系统的那些事儿</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -196,11 +169,25 @@
         </span>
         
         
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
             
-            <h1 id="1，磁盘"><a href="#1，磁盘" class="headerlink" title="1，磁盘"></a>1，磁盘</h1><h2 id="磁盘在计算机中扮演的角色："><a href="#磁盘在计算机中扮演的角色：" class="headerlink" title="磁盘在计算机中扮演的角色："></a>磁盘在计算机中扮演的角色：</h2><h3 id="1，数据存取"><a href="#1，数据存取" class="headerlink" title="1，数据存取"></a>1，数据存取</h3><h3 id="2，数据读取"><a href="#2，数据读取" class="headerlink" title="2，数据读取"></a>2，数据读取</h3><h3 id="3，数据备份与恢复"><a href="#3，数据备份与恢复" class="headerlink" title="3，数据备份与恢复"></a>3，数据备份与恢复</h3><h3 id="4，系统启动-将数据加载到系统中"><a href="#4，系统启动-将数据加载到系统中" class="headerlink" title="4，系统启动(将数据加载到系统中)"></a>4，系统启动(将数据加载到系统中)</h3><h3 id="5，文件管理"><a href="#5，文件管理" class="headerlink" title="5，文件管理"></a>5，文件管理</h3><h3 id="6，性能的优化-如HDD换SSD，提高性能…"><a href="#6，性能的优化-如HDD换SSD，提高性能…" class="headerlink" title="6，性能的优化(如HDD换SSD，提高性能…..)"></a>6，性能的优化(如HDD换SSD，提高性能…..)</h3><h2 id="磁盘I-O瓶颈"><a href="#磁盘I-O瓶颈" class="headerlink" title="磁盘I/O瓶颈"></a>磁盘I/O瓶颈</h2><p>(磁盘I/O是指 input/output 写入和写出)<br>磁盘I/O瓶颈是指在计算机系统中，磁盘输入/输出（I/O）操作成为系统性能的限制因素，导致系统整体性<br>能下降的现象。I/O操作包括从磁盘读取数据和向磁盘写入数据，这些操作通常比CPU处理和内存访问要慢<br>得多。</p>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" style="color: #ff7d73">
+                    奇葩那些事儿
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="1，磁盘"><a href="#1，磁盘" class="headerlink" title="1，磁盘"></a>1，磁盘</h1><h2 id="磁盘在计算机中扮演的角色："><a href="#磁盘在计算机中扮演的角色：" class="headerlink" title="磁盘在计算机中扮演的角色："></a>磁盘在计算机中扮演的角色：</h2><h3 id="1，数据存取"><a href="#1，数据存取" class="headerlink" title="1，数据存取"></a>1，数据存取</h3><h3 id="2，数据读取"><a href="#2，数据读取" class="headerlink" title="2，数据读取"></a>2，数据读取</h3><h3 id="3，数据备份与恢复"><a href="#3，数据备份与恢复" class="headerlink" title="3，数据备份与恢复"></a>3，数据备份与恢复</h3><h3 id="4，系统启动-将数据加载到系统中"><a href="#4，系统启动-将数据加载到系统中" class="headerlink" title="4，系统启动(将数据加载到系统中)"></a>4，系统启动(将数据加载到系统中)</h3><h3 id="5，文件管理"><a href="#5，文件管理" class="headerlink" title="5，文件管理"></a>5，文件管理</h3><h3 id="6，性能的优化-如HDD换SSD，提高性能…"><a href="#6，性能的优化-如HDD换SSD，提高性能…" class="headerlink" title="6，性能的优化(如HDD换SSD，提高性能…..)"></a>6，性能的优化(如HDD换SSD，提高性能…..)</h3><h2 id="磁盘I-O瓶颈"><a href="#磁盘I-O瓶颈" class="headerlink" title="磁盘I/O瓶颈"></a>磁盘I/O瓶颈</h2><p>(磁盘I/O是指 input/output 写入和写出)<br>磁盘I/O瓶颈是指在计算机系统中，磁盘输入/输出（I/O）操作成为系统性能的限制因素，导致系统整体性<br>能下降的现象。I/O操作包括从磁盘读取数据和向磁盘写入数据，这些操作通常比CPU处理和内存访问要慢<br>得多。</p>
 <h3 id="磁盘I-O瓶颈的原因"><a href="#磁盘I-O瓶颈的原因" class="headerlink" title="磁盘I/O瓶颈的原因"></a>磁盘I/O瓶颈的原因</h3><ol>
 <li><strong>磁盘速度慢</strong>：传统的机械硬盘（HDD）由于需要物理旋转和磁头移动，其读写速度相对较慢。即使是固态硬盘（SSD），其速度也远低于内存。</li>
 <li><strong>I/O请求过多</strong>：当系统或应用程序频繁地进行磁盘读写操作时，磁盘可能无法及时处理所有请求，导致请求队列变长，响应时间增加。</li>
@@ -272,284 +259,13 @@
 <p>脏页的存在意味着内存中的数据与磁盘上的数据不一致。操作系统会在适当的时候（例如内存压力增大、系统空闲时、达到一定时间间隔等）将脏页写回到磁盘，以确保数据的持久性和一致性。这个过程称为“回写”（Write-back）或“刷脏”（Dirty Page Flushing）。</p>
 <p>脏页的管理是操作系统内存管理的一个重要方面，涉及到性能和数据一致性之间的平衡。如果脏页过多，可能会导致内存不足，从而影响系统性能；如果脏页长时间不回写，可能会导致数据丢失或不一致。因此，操作系统会根据系统负载和配置参数来动态调整脏页的回写策略。</p>
 
-            
-        </div>
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" style="color: #ffa2c4">奇葩那些事儿</a>
-        </span>
-        
-    </div>
-    <a href="/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/">
-        <h2 class="post-title">油猴编写脚本</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/22
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            欢迎你来偷偷学习
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" style="color: #03a9f4">奇葩那些事儿</a>
-        </span>
-        
-    </div>
-    <a href="/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/year/07/16/Linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-        <h2 class="post-title">Linux的基本操作</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            Linux的基本入门操作，一看就会，一写就废
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Linux/" style="color: #00bcd4">Linux</a>
-        </span>
-        
-    </div>
-    <a href="/year/07/16/Linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/year/07/15/%E2%80%9C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%9D%E4%B9%8B-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83-1/">
-        <h2 class="post-title">“机器学习”之  从入门到放弃(1)</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/15
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            机器学习的入门了解篇
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="color: #03a9f4">机器学习</a>
-        </span>
-        
-    </div>
-    <a href="/year/07/15/%E2%80%9C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%9D%E4%B9%8B-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83-1/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/year/07/15/How-to-create-your-Blog/">
-        <h2 class="post-title">How to create your Blog</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/15
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            欢迎学习如何创建属于自己的Blog
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/study/" style="color: #ff7d73">study</a>
-        </span>
-        
-    </div>
-    <a href="/year/07/15/How-to-create-your-Blog/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/year/07/14/I-m-coming/">
-        <h2 class="post-title">I&#39;m coming</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/14
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>记录回归，我会持续更新后续的学习内容</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/life/" style="color: #ff7d73">life</a>
-        </span>
-        
-    </div>
-    <a href="/year/07/14/I-m-coming/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/year/03/06/My-First-Blog/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/3/6
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <hr>
-<p>title: My First Blog<br>date: 2024-03-06 12:44:29</p>
-<p>#这是我的第一篇博客<br>欢迎你！！！<br>    Hello World！</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/year/03/06/My-First-Blog/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
     
-    <span class="current">1</span>
     
     
     
     
-</div>
-
-    </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">Hungyingyuan</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-    </div>
-</div>
-
-    </div>
     
 </div>
 
@@ -581,6 +297,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 <!-- hexo injector body_end start --><script data-pjax>
   function butterfly_clock_anzhiyu_injector_config(){
