@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>“机器学习”之  从入门到放弃(1) | Huangyingyuan&#39;s Life Blog</title>
+    <meta name="author" content="Hungyingyuan" />
+    <meta name="description" content="Wishing you a pleasant day" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>“机器学习”之  从入门到放弃(1)</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/15
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="color: #ffa2c4">
+                    机器学习
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="1，“机器学习”的基础定义"><a href="#1，“机器学习”的基础定义" class="headerlink" title="1，“机器学习”的基础定义"></a>1，“机器学习”的基础定义</h1><h2 id="从广义上来说：机器学习是让机器学习，实现直接用编程无法实现的功能的做法"><a href="#从广义上来说：机器学习是让机器学习，实现直接用编程无法实现的功能的做法" class="headerlink" title="从广义上来说：机器学习是让机器学习，实现直接用编程无法实现的功能的做法"></a>从广义上来说：机器学习是让机器学习，实现直接用编程无法实现的功能的做法</h2><h2 id="从意义上来说：是利用数据，训练出模型，实现数据预测的效果"><a href="#从意义上来说：是利用数据，训练出模型，实现数据预测的效果" class="headerlink" title="从意义上来说：是利用数据，训练出模型，实现数据预测的效果"></a>从意义上来说：是利用数据，训练出模型，实现数据预测的效果</h2><h2 id="总的来说：机器学习是由“预测”与“训练”的过程，得出未知的定律"><a href="#总的来说：机器学习是由“预测”与“训练”的过程，得出未知的定律" class="headerlink" title="总的来说：机器学习是由“预测”与“训练”的过程，得出未知的定律"></a>总的来说：机器学习是由“预测”与“训练”的过程，得出未知的定律</h2><p>让我们将其与人学习进行对比：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721043877125-be9a45ab-b0fa-4a49-80a4-773d721387fa.png#averageHue=%23fafaf9&amp;clientId=uffa08ced-a6a6-4&amp;from=paste&amp;height=232&amp;id=uc100a119&amp;originHeight=290&amp;originWidth=554&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=48975&amp;status=done&amp;style=none&amp;taskId=uc9364ed7-1131-4bf1-a72c-48902370dc5&amp;title=&amp;width=443.2" alt="image.png"></p>
+<h1 id="2，Python机器学习的六大库"><a href="#2，Python机器学习的六大库" class="headerlink" title="2，Python机器学习的六大库"></a>2，Python机器学习的六大库</h1><h2 id="1、NumPy"><a href="#1、NumPy" class="headerlink" title="1、NumPy"></a>1、NumPy</h2><p>如果没有 NumPy，数据科学将是不完整的。它是一个可以进行科学计算的 Python 软件包。NumPy 是一个神奇</p>
+<p>的多维数组对象库。它们协同工作，降低了程序的计算复杂性。</p>
+<h2 id="2、SciPy"><a href="#2、SciPy" class="headerlink" title="2、SciPy"></a>2、SciPy</h2><p>SciPy 是 Python 人工智能项目的另一个热门库，也是涉及数学和工程领域中， Python 程序员科学和重度计算的</p>
+<p>首选。它提供了数值优化和集成的例程，对于初学者来说非常友好。</p>
+<h2 id="3、Scikit-Learn"><a href="#3、Scikit-Learn" class="headerlink" title="3、Scikit-Learn"></a>3、Scikit-Learn</h2><p>这个库建立在 NumPy 和 SciPy 之上，主要用于监督和无监督学习。它是一个用于数据挖掘和数据分析的完美工</p>
+<p>具。</p>
+<h2 id="4、Pandas"><a href="#4、Pandas" class="headerlink" title="4、Pandas"></a>4、Pandas</h2><p>Pandas 是开源的 Python 软件包，使程序员能够对数据进行操作和分析。它具有高效的数据探索和可视化功能，</p>
+<p>并提供高级数据结构和多种工具，可用于密切处理多个数据集。</p>
+<p>我之前用来识别excel大型的数据，将数据分类获取，处理大量数据挺好用</p>
+<h2 id="5、Keras"><a href="#5、Keras" class="headerlink" title="5、Keras"></a>5、Keras</h2><p>Keras 是一个运行在 TensorFlow 上的 API。Keras的重点是让开发者快速实验人工智能。这个库的用户体验比 </p>
+<p>TensorFlow 好得多——因为它是用 Python 开发的，所以比其他工具更容易理解。</p>
+<h2 id="6、Matplotlib"><a href="#6、Matplotlib" class="headerlink" title="6、Matplotlib"></a>6、Matplotlib</h2><p>所有库中最强大的是 Matplotlib。它提供了数据可视化和探索的功能，以及图表、直方图和散点图等，以定制</p>
+<p>Python AI 项目。Matplotlib 有助于在更短的时间内快速操作数据进行可视化展示。</p>
+<h1 id="3，机器学习的相关科目"><a href="#3，机器学习的相关科目" class="headerlink" title="3，机器学习的相关科目"></a>3，机器学习的相关科目</h1><h2 id="1，线性代数"><a href="#1，线性代数" class="headerlink" title="1，线性代数"></a>1，线性代数</h2><p>这门科目我也不想说什么  What can i say?  只能说“不错”，我“爱”老师</p>
+<p>说实在的，在基础的机器学习可能你感受不到线性代数的作用，但是在深入地去了解机器学习后，或者在计算机大</p>
+<p>大小小方面来说，还是会经常交面的,从素未相识到老朋友</p>
+<h2 id="2，微积分"><a href="#2，微积分" class="headerlink" title="2，微积分"></a>2，微积分</h2><p>是计算机的求多种数学/物理模型算法求解的核心</p>
+<h2 id="3，典型算法"><a href="#3，典型算法" class="headerlink" title="3，典型算法"></a>3，典型算法</h2><p>处理分类问题的常用算法包括：</p>
+<p>逻辑回归(工业界最常用)，支持向量机，随机森林，朴素贝叶斯(NLP中常用)，深度神经网络(视频、图片、语音等</p>
+<p>多媒体数据中使用)。</p>
+<p>处理回归问题的常用算法包括：</p>
+<p>线性回归，普通最小二乘回归（Ordinary Least SquaresRegression），逐步回归（Stepwise Regression），</p>
+<p>多元自适应回归样条（MultivariateAdaptive Regression Splines）</p>
+<p>处理聚类问题的常用算法包括：</p>
+<p>K均值（K-means），基于密度聚类，LDA等等。</p>
+<p>降维的常用算法包括：</p>
+<p>主成分分析（PCA）,奇异值分解（SVD） 等。</p>
+<p>推荐系统的常用算法：</p>
+<p>协同过滤算法</p>
+<p>模型融合(model ensemble)和提升(boosting)的算法包括：</p>
+<p>bagging，adaboost，GBDT，GBRT</p>
+<p>其他很重要的算法包括：EM算法等等。</p>
+<h1 id="4-机器学习的过程"><a href="#4-机器学习的过程" class="headerlink" title="4,机器学习的过程"></a>4,机器学习的过程</h1><h2 id="明确目标："><a href="#明确目标：" class="headerlink" title="明确目标："></a>明确目标：</h2><p>就像你要教小孩子学骑自行车，首先得告诉他目标是学会骑车，而不是跑步或者游泳。在机器学习</p>
+<p>中，你得清楚你想要机器帮你做什么，比如识别图片中的物体，或者预测未来的天气。</p>
+<h2 id="2-数据收集"><a href="#2-数据收集" class="headerlink" title="2.数据收集"></a>2.数据收集</h2><p>收集资料：教小孩子骑车，你需要给他一辆自行车和一些安全装备。在机器学习中，你需要收集相关的数据，这些</p>
+<p>数据就像是机器学习的“自行车”和“安全装备”，帮助它学习如何解决问题。</p>
+<h2 id="3-数据清洗"><a href="#3-数据清洗" class="headerlink" title="3.数据清洗"></a>3.数据清洗</h2><p>整理资料：小孩子学骑车时，你得确保自行车没有问题，比如轮胎气要足，刹车要灵。在机器学习中，你需要检查</p>
+<p>数据，去掉那些不完整、错误或者重复的部分，确保数据的质量。</p>
+<h2 id="4-数据评估"><a href="#4-数据评估" class="headerlink" title="4.数据评估"></a>4.数据评估</h2><p>检查资料：在小孩子开始骑车之前，你会检查一下他是否准备好了，比如头盔戴好了没有。在机器学习中，你需要</p>
+<p>评估数据是否足够好，是否能够帮助机器学习到有用的信息。</p>
+<h2 id="5-扩大模型"><a href="#5-扩大模型" class="headerlink" title="5.扩大模型"></a>5.扩大模型</h2><p>丰富教材：教小孩子骑车，你可能还会给他看一些骑车的视频，或者让他练习平衡。在机器学习中，你可能需要对</p>
+<p>数据进行一些加工，比如增加一些新的特征，或者调整数据的格式，让机器学习的内容更加丰富。</p>
+<h2 id="6-模型正则化与超参数"><a href="#6-模型正则化与超参数" class="headerlink" title="6.模型正则化与超参数"></a>6.模型正则化与超参数</h2><p>调整学习方法：教小孩子骑车，你得告诉他一些规则，比如不要骑得太快，注意安全。在机器学习中，你需要给模</p>
+<p>型一些规则，防止它学得太死板（过拟合）。同时，你还需要调整一些学习参数，就像是调整学习方法，让机器学</p>
+<p>习得更好。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个机器学习的过程，就像是教一个小孩子学习新技能。首先，你要告诉他学什么（定义问题），然后给他教材</p>
+<p>（数据收集），帮他整理教材（数据清洗），检查教材是否合适（数据评估），丰富教材内容（扩大模型），最后</p>
+<p>调整他的学习方法（模型正则化与超参数）。通过这些步骤，小孩子（机器）就能学会解决问题了。</p>
+<p>这一期的机器学习总能让你有个大概的了解了吧，等我后续更新，继续进一步了解</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Huangyingyuan&#39;s Life Blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Hungyingyuan
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = '8bc680cde7d34a8e9751dd00a8edfb41';
+  var gaud_map_key = 'c6ca74a817544e8bf510ee74bccb3db1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body>
+</html>

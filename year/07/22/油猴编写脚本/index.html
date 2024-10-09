@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>油猴编写脚本 | Huangyingyuan&#39;s Life Blog</title>
+    <meta name="author" content="Hungyingyuan" />
+    <meta name="description" content="Wishing you a pleasant day" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>油猴编写脚本</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/22
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" style="color: #ffa2c4">
+                    奇葩那些事儿
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>注：油猴即”篡改猴“</p>
+<p>背景：</p>
+<p>通常我们在·网页端的CSDN中，不登陆账号的话，是禁止复制代码内容的，给我们带来了层层不便，今天我</p>
+<p>们就硬气点，自己编写脚本实现不应登录就可以复制代码</p>
+<p>1，在浏览器安装油猴（搜索”篡改猴“）</p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(1).png?raw=true" alt="image.png"></p>
+<p>2，进入到主页(这里我之前安装的脚本是”用来刷网课的，实现网课自由好吧。唯一缺点是要充值，等有实力了，</p>
+<p>我也自己写自动刷网课的脚本，这样子我也可以实现财富自由了~“)</p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(2).png?raw=true" alt="image.png"></p>
+<p>3，话不多说。直接进入到CSDN界面，开始操作好吧</p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(3).png?raw=true" alt="image.png"></p>
+<p>4，浏览器提供的接口contentediable(是否可以被编辑)</p>
+<p>contentediable的默认值是False，也就是默认是不可以编辑的，我们将其False偷偷摸摸地设置为True，就可以编<br>辑了</p>
+<p>接下来你懂的~~~就是把CSDN的contentediable的Flase改成True就可以实现不用登录就可以偷取别人的代码了</p>
+<p>5，编写修改代码</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//获取所有代码块</span><br><span class="line">    let codes = document.querySelectorAll("code");</span><br><span class="line">    //循环遍历所有(parameten)c:HTMLElement</span><br><span class="line">    codes.forEach(c =&gt;{</span><br><span class="line">        //设置代码块可以编辑，从而实现可复制</span><br><span class="line">        c.contentEditable ="true";</span><br><span class="line">    });</span><br><span class="line">    </span><br></pre></td></tr></tbody></table></figure>
+
+<p>6，点开脚本输入界面<br><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(4).png?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(5).png?raw=true" alt="image.png"></p>
+<p>这里的CSDN的网址是：<a target="_blank" rel="noopener" href="https://blog.csdn.net/*/article/details/*">https://blog.csdn.net/<em>/article/details/</em></a></p>
+<p>7，获取网页的图标</p>
+<p>7.1	F12进入网页的开发者模式</p>
+<p>7.2	点击网络</p>
+<p>7.3	搜索.ico</p>
+<p>7.4	刷新界面</p>
+<p>7.5	找到.ico文件</p>
+<p>7.8	点击“标头”，复制链接</p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(6).png?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(7).png?raw=true" alt="image.png"></p>
+<p>8，将自己写的代码放入脚本中</p>
+<p>将Your codes 替换成自己的代码</p>
+<p>然后点击开发者模式，选择自动缩进</p>
+<p>然后 保存(Ctrl+S)<br><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(8).png?raw=true" alt="image.png"></p>
+<p>RES结果展示:<br><img src="https://github.com/huangyingyuan/huangyingyuan.github.io/blob/master/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/images(9).png?raw=true" alt="image.png"></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Huangyingyuan&#39;s Life Blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Hungyingyuan
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = '8bc680cde7d34a8e9751dd00a8edfb41';
+  var gaud_map_key = 'c6ca74a817544e8bf510ee74bccb3db1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body>
+</html>

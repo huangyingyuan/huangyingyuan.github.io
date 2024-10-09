@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>Math-base | Huangyingyuan&#39;s Life Blog</title>
+    <meta name="author" content="Hungyingyuan" />
+    <meta name="description" content="Wishing you a pleasant day" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>Math-base</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/16
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="color: #ffa2c4">
+                    数学建模
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>clc清除命令行中的所有命令<br>注释：%<br>Matlab的索引是从1开始的<br>： 冒号是指全部<br>；分号是指换行</p>
+<h1 id="运算符号："><a href="#运算符号：" class="headerlink" title="运算符号："></a>运算符号：</h1><p> 运算符优先级:<br>优先级      符号<br>最高          次幂(^)<br>高		一元运算符(+  -)<br>低		乘(*) 除(/)<br>最低		加(+) 减(-)</p>
+<h2 id="1，开平方根-sqrt-数字"><a href="#1，开平方根-sqrt-数字" class="headerlink" title="1，开平方根   sqrt(数字)"></a>1，开平方根   sqrt(数字)</h2><h2 id="2，开任意方根-power-n，开几次方"><a href="#2，开任意方根-power-n，开几次方" class="headerlink" title="2，开任意方根  power(n，开几次方)"></a>2，开任意方根  power(n，开几次方)</h2><p>Eg：    </p>
+<p>power(8,1/3)    		指8的立方根</p>
+<h2 id="3，log函数"><a href="#3，log函数" class="headerlink" title="3，log函数"></a>3，log函数</h2><p>log(1.5) 			%以e为底的对数<br>log 10 (1.5) 		%以10为底的对数<br>log 2 (1.5) 			%以2为底的对数<br>log1p(0)			%=log(x-1)<br>log(9)/log(3)              %利用换底公式求任意</p>
+<h2 id="4，指数函数"><a href="#4，指数函数" class="headerlink" title="4，指数函数"></a>4，指数函数</h2><p>exp(2)              		% 以e为底的指数</p>
+<p>expm 1 (2)            	% =exp(x)-1   即 𝑒^2−1</p>
+<p>pow2(10)           	% 以2为底的指数(表示2的10次方)</p>
+<p>nextpow 2 (20)        	% 寻找最大的n.使得2‘（n-1）小于该值<br>Eg:<br>计算 <code>2^1</code>=2&lt;20<br>计算 <code>2^2</code>=4&lt;20<br>计算 <code>2^3</code>=8&lt;20<br>计算 <code>2^4</code>=16&lt;20<br>计算 <code>2^5</code>=32&gt;20<br>因此，<code>nextpow2(20)</code> 返回的值是 5，因为 <code>2^5</code> 是大于 20 的最小的 2 的幂次方。<br>根据问题的要求，我们需要找到最大的 <code>n</code>，使得 <code>2^(n-1)</code> 小于 20。</p>
+<h2 id="5，三角函数"><a href="#5，三角函数" class="headerlink" title="5，三角函数"></a>5，三角函数</h2><p>pi表示Π</p>
+<h2 id="sin-pi-6-正弦sin-pi-6-余弦tan-pi-4-正切"><a href="#sin-pi-6-正弦sin-pi-6-余弦tan-pi-4-正切" class="headerlink" title="sin(pi/6)			%正弦sin(pi/6)			%余弦tan (pi/4)			%正切"></a>sin(pi/6)			%正弦<br>sin(pi/6)			%余弦<br>tan (pi/4)			%正切</h2><h2 id="asin-1-2-反正弦，弧度制Π-6acos-1-2-反余弦，弧度制Π-3atan-1-反正切，弧度制Π-4"><a href="#asin-1-2-反正弦，弧度制Π-6acos-1-2-反余弦，弧度制Π-3atan-1-反正切，弧度制Π-4" class="headerlink" title="asin (1/2)			%反正弦，弧度制	Π/6acos (1/2)			%反余弦，弧度制	Π/3atan (1)			%反正切，弧度制	Π/4"></a>asin (1/2)			%反正弦，弧度制	Π/6<br>acos (1/2)			%反余弦，弧度制	Π/3<br>atan (1)			%反正切，弧度制	Π/4</h2><h2 id="asind-1-2-反正弦，角度制-30acosd-1-2-反余弦，角度制-60atand-1-反正切，角度制-45"><a href="#asind-1-2-反正弦，角度制-30acosd-1-2-反余弦，角度制-60atand-1-反正切，角度制-45" class="headerlink" title="asind(1/2)			%反正弦，角度制        =30acosd(1/2)			%反余弦，角度制	=60atand(1)			%反正切，角度制	=45"></a>asind(1/2)			%反正弦，角度制        =30<br>acosd(1/2)			%反余弦，角度制	=60<br>atand(1)			%反正切，角度制	=45</h2><p>atan2(1,-1)		%四象限反正切</p>
+<p>Eg：<br>    对于 <code>atan2(1, -1)</code>，我们计算的是点 (−1,1)(−1,1) 相对于原点的角度。<br>在直角坐标系中，点 (−1,1)(−1,1) 位于第二象限。我们可以通过以下步骤计算角度：</p>
+<ol>
+<li>计算从正 x 轴逆时针旋转到该点的角度。</li>
+<li>由于点在第二象限，角度是 𝜋−arctan⁡(1/1)</li>
+</ol>
+<h2 id="arctan⁡-1-是-𝜋-4，所以：𝜋−𝜋-4-3𝜋-4因此，atan2-1-1-的结果是-3𝜋-4-弧度。"><a href="#arctan⁡-1-是-𝜋-4，所以：𝜋−𝜋-4-3𝜋-4因此，atan2-1-1-的结果是-3𝜋-4-弧度。" class="headerlink" title="arctan⁡(1)是 𝜋/4，所以：𝜋−𝜋/4=3𝜋/4因此，atan2(1, -1) 的结果是 3𝜋/4 弧度。"></a>arctan⁡(1)是 𝜋/4，所以：<br>𝜋−𝜋/4=3𝜋/4<br>因此，<code>atan2(1, -1)</code> 的结果是 3𝜋/4 弧度。</h2><h2 id="mod-17-4-求余数"><a href="#mod-17-4-求余数" class="headerlink" title="mod(17,4)			%求余数"></a>mod(17,4)			%求余数</h2><p>rem(17,4)			%求与被除数符号相同余数</p>
+<h2 id="Eg-17-除以-4-等于-4-余-1，因为-17-4×4-117-4×4-1。因此，rem-17-4-的结果是-1。"><a href="#Eg-17-除以-4-等于-4-余-1，因为-17-4×4-117-4×4-1。因此，rem-17-4-的结果是-1。" class="headerlink" title="Eg: 		 17 除以 4 等于 4 余 1，因为 17=4×4+117=4×4+1。因此，rem(17, 4) 的结果是 1。"></a>Eg: 		 17 除以 4 等于 4 余 1，因为 17=4×4+117=4×4+1。<br>因此，<code>rem(17, 4)</code> 的结果是 1。</h2><p>sign(-6)			%符号函数   结果为-1</p>
+<ul>
+<li>如果 <code>x</code> 是正数，<code>sign(x)</code> 返回 1。</li>
+<li>如果 <code>x</code> 是零，<code>sign(x)</code> 返回 0。</li>
+<li>如果 <code>x</code> 是负数，<code>sign(x)</code> 返回 -1。</li>
+</ul>
+<h2 id="6，整体运算"><a href="#6，整体运算" class="headerlink" title="6，整体运算"></a>6，整体运算</h2><p>max([1,2,3,4,5])				%最大值<br>min([1,2,3,4,5])				%最小值<br>meam([1,2,3,4,5])			%平均值<br>median([1,2,3,4,5])			%中位数<br>prod([1,2,3,4,5])				%求积<br>sum([1,2,3,4,5])				$最和<br>var([1,2,3,4,5])				%方差<br>std([1,2,3,4,5])				%标准差<br>cov([1,2,3,4,5]，[5,4,3.2.1])		%协方差</p>
+<h2 id="7，生成随机数"><a href="#7，生成随机数" class="headerlink" title="7，生成随机数"></a>7，生成随机数</h2><p>rand(1)			%生成0-1均匀分布的的随机数<br>randi(100)			%生成0到100均匀分布随机数，注意辨别参数的意义<br>randn(1)			%生成正态分布的的随机数<br>sprand(10,10,0.5)	%稀跨均匀分布随机矩阵<br>sprandn(10,10,0.5)	%稀疏正态分布随机矩阵<br>rng( default’)		%随机种子</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="1-命名规则"><a href="#1-命名规则" class="headerlink" title="1,命名规则"></a>1,命名规则</h1><p>严格区分大小写<br>尽量以字母开头</p>
+<h1 id="2，数据类型"><a href="#2，数据类型" class="headerlink" title="2，数据类型"></a>2，数据类型</h1><h2 id="2-1数字"><a href="#2-1数字" class="headerlink" title="2.1数字"></a>2.1数字</h2><h2 id="2-2字符和字符串"><a href="#2-2字符和字符串" class="headerlink" title="2.2字符和字符串"></a>2.2字符和字符串</h2><h2 id="2-3矩阵"><a href="#2-3矩阵" class="headerlink" title="2.3矩阵"></a>2.3矩阵</h2><h3 id="怎麽去定义矩阵？"><a href="#怎麽去定义矩阵？" class="headerlink" title="怎麽去定义矩阵？"></a>怎麽去定义矩阵？</h3><p>A=[1 2 3 ; 4 5 6 ; 7 8 9]</p>
+<p>(“   ;   ”  是换行的意思)</p>
+<p>得：<br>A =<br>1  2  3<br>4  5  6<br>7  8  9</p>
+<p> B = [1  2  3  4  5  6]<br>得：<br>B =<br>1  2  3  4  5  6</p>
+<p>C = repmat(B , 3 , 1)     是指重复B的内容，执行3行1列(把B看成一个整体)<br>得：<br>    C =<br>1 2 3 4 5 6<br>1 2 3 4 5 6<br>1 2 3 4 5 6</p>
+<p>D = 1：2：9      意思是从1到9中取出数值，且步长为2<br>得：<br>B =<br>1  3  5  7  9</p>
+<p>定义全是1的矩阵：<br>    E = ones(2, 4)     指定义两行四列的全是1的矩阵<br>得：<br>E =<br>1  1  1  1<br>1  1  1  1</p>
+<h3 id="矩阵的运算："><a href="#矩阵的运算：" class="headerlink" title="矩阵的运算："></a>矩阵的运算：</h3><p>A = [1 2 3 4 ; 5 6 7 8]<br>B = [1 1 2 2 ; 2 2 1 1]</p>
+<p> A + B</p>
+<p>A - B</p>
+<p>A * B’</p>
+<p>A .*B      带点是说明对应数字做运算(这里是A和B矩阵对应相乘)<br>得：<br>1    2    6   8<br>10  12  6   8</p>
+<p>A / B</p>
+<p>A ./ B</p>
+<h3 id="矩阵的下标："><a href="#矩阵的下标：" class="headerlink" title="矩阵的下标："></a>矩阵的下标：</h3><p>A = [1  2  3  4 ; 5  6  7  8 ; 9  10  11  12]</p>
+<p><strong>B = A(2,3)       即是获取A矩阵的第二行第三列的元素   7</strong></p>
+<p><strong>C = A(3 , : )     是指第三行的全部</strong><br>得：<br>C = 9  10  11  12</p>
+<p><strong>D = A( : , 4 )      是指第四列的全部</strong><br>得：<br>D = 4  8  12</p>
+<h3 id="find找条件"><a href="#find找条件" class="headerlink" title="find找条件"></a>find找条件</h3><p>[m ,  n] = find(A &gt;2)<br>得：<br>m =<br>             2<br>              3<br>             2<br>             3<br>              1<br>              2<br>             3<br>             1<br>             2<br>              3</p>
+<p>n =<br>     1<br>              1<br>             2<br>             2<br>             3<br>              3<br>              3<br>              4<br>             4<br>             4<br>注：m是行，n是列，两者的位置一一对应，如第2行第1列的元素大于2</p>
+<h3 id="转置矩阵："><a href="#转置矩阵：" class="headerlink" title="转置矩阵："></a>转置矩阵：</h3><p>（行和列转换）</p>
+<p>如何去定义？</p>
+<p>B = A’</p>
+<p>打印结果：</p>
+<p>B =<br>1  4  7<br>2  5  8<br>3  6  9</p>
+<h3 id="拉长矩阵："><a href="#拉长矩阵：" class="headerlink" title="拉长矩阵："></a>拉长矩阵：</h3><p>如何拉长？</p>
+<p>C = A(:)</p>
+<p>打印结果：</p>
+<p>C=<br>1<br>4<br>7<br>2<br>5<br>8<br>3<br>6<br>9</p>
+<h3 id="行列式："><a href="#行列式：" class="headerlink" title="行列式："></a>行列式：</h3><p>行列式是行和列都相等的矩阵</p>
+<p>det(A)</p>
+<h4 id="求行列式A的迹："><a href="#求行列式A的迹：" class="headerlink" title="求行列式A的迹："></a>求行列式A的迹：</h4><p>trace(A)</p>
+<h4 id="讲述一下行列式与迹的区别："><a href="#讲述一下行列式与迹的区别：" class="headerlink" title="讲述一下行列式与迹的区别："></a>讲述一下行列式与迹的区别：</h4><p>让我们通过一个具体的例子来说明行列式和迹的概念：</p>
+<p>假设我们有一个 3 阶方阵 _A_：<br>𝐴=(	1  2  3<br>  4  5  6<br>  7  8  9  )<br><strong>计算行列式（Determinant）</strong>：<br>对于 3 阶矩阵，我们可以使用萨吕法则（Sarrus’ rule）来计算行列式。萨吕法则的具体步骤如下：</p>
+<ol>
+<li>复制矩阵的前两列，放在矩阵的右侧：</li>
+</ol>
+<p>(  1  2  3  1  2<br>   4  5  6  4  5<br>   7  8  9  7  8  )</p>
+<ol>
+<li>计算从左上到右下的对角线元素的乘积之和：</li>
+</ol>
+<p>(1⋅5⋅9)+(2⋅6⋅7)+(3⋅4⋅8)(1⋅5⋅9)+(2⋅6⋅7)+(3⋅4⋅8)</p>
+<ol>
+<li>计算从右上到左下的对角线元素的乘积之和：</li>
+</ol>
+<p>(3⋅5⋅7)+(1⋅6⋅8)+(2⋅4⋅9)(3⋅5⋅7)+(1⋅6⋅8)+(2⋅4⋅9)</p>
+<ol>
+<li>行列式等于步骤 2 的结果减去步骤 3 的结果：</li>
+</ol>
+<p>det⁡(𝐴)=(1⋅5⋅9+2⋅6⋅7+3⋅4⋅8)−(3⋅5⋅7+1⋅6⋅8+2⋅4⋅9)det(<em>A</em>)=(1⋅5⋅9+2⋅6⋅7+3⋅4⋅8)−(3⋅5⋅7+1⋅6⋅8+2⋅4⋅9)<br>计算这些乘积和：<br>1⋅5⋅9=45,2⋅6⋅7=84,3⋅4⋅8=961⋅5⋅9=45,2⋅6⋅7=84,3⋅4⋅8=963⋅5⋅7=105,1⋅6⋅8=48,2⋅4⋅9=723⋅5⋅7=105,1⋅6⋅8=48,2⋅4⋅9=72<br>将这些结果代入行列式公式：<br>det⁡(𝐴)=(45+84+96)−(105+48+72)=225−225=0det(<em>A</em>)=(45+84+96)−(105+48+72)=225−225=0<br>所以，矩阵 𝐴<em>A</em> 的行列式为 0。<br><strong>计算迹（Trace）</strong>：<br>迹是矩阵主对角线上所有元素的和：<br>tr(𝐴)=1+5+9=15tr(<em>A</em>)=1+5+9=15<br>所以，矩阵 𝐴<em>A</em> 的迹为 15。<br>总结：</p>
+<ul>
+<li>矩阵 𝐴<em>A</em> 的行列式 det⁡(𝐴)=0</li>
+<li>矩阵 𝐴<em>A</em> 的迹 tr(𝐴)=15</li>
+</ul>
+<h3 id="n-n级矩阵："><a href="#n-n级矩阵：" class="headerlink" title="n*n级矩阵："></a>n*n级矩阵：</h3><p>全是0的矩阵：<br>zeros(n)               %创建n*n的矩阵</p>
+<p>全是1的矩阵：<br>ones(n)		   %创建n*n的矩阵</p>
+<h3 id="单位矩阵："><a href="#单位矩阵：" class="headerlink" title="单位矩阵："></a>单位矩阵：</h3><p>eyes(n) 		  %创建n*n的单位矩阵</p>
+<h3 id="逆矩阵："><a href="#逆矩阵：" class="headerlink" title="逆矩阵："></a>逆矩阵：</h3><p>D = inv(A)</p>
+<h3 id="伪逆矩阵："><a href="#伪逆矩阵：" class="headerlink" title="伪逆矩阵："></a>伪逆矩阵：</h3><p>不需要方阵，实现逆矩阵，所以称为伪逆矩阵</p>
+<p>pinv(A)</p>
+<h3 id="基矩阵"><a href="#基矩阵" class="headerlink" title="基矩阵"></a>基矩阵</h3><p>[xx,yy]=meshgrid(1:100,1:5)</p>
+<p>得：</p>
+<p>xx =</p>
+<p>  1 至 14 列</p>
+<pre><code> 1     2     3     4     5     6     7     8     9    10    11    12    13    14
+ 1     2     3     4     5     6     7     8     9    10    11    12    13    14
+ 1     2     3     4     5     6     7     8     9    10    11    12    13    14
+ 1     2     3     4     5     6     7     8     9    10    11    12    13    14
+ 1     2     3     4     5     6     7     8     9    10    11    12    13    14
+</code></pre>
+<p>  15 至 28 列</p>
+<pre><code>15    16    17    18    19    20    21    22    23    24    25    26    27    28
+15    16    17    18    19    20    21    22    23    24    25    26    27    28
+15    16    17    18    19    20    21    22    23    24    25    26    27    28
+15    16    17    18    19    20    21    22    23    24    25    26    27    28
+15    16    17    18    19    20    21    22    23    24    25    26    27    28
+</code></pre>
+<p>  29 至 42 列</p>
+<pre><code>29    30    31    32    33    34    35    36    37    38    39    40    41    42
+29    30    31    32    33    34    35    36    37    38    39    40    41    42
+29    30    31    32    33    34    35    36    37    38    39    40    41    42
+29    30    31    32    33    34    35    36    37    38    39    40    41    42
+29    30    31    32    33    34    35    36    37    38    39    40    41    42
+</code></pre>
+<p>  43 至 56 列</p>
+<pre><code>43    44    45    46    47    48    49    50    51    52    53    54    55    56
+43    44    45    46    47    48    49    50    51    52    53    54    55    56
+43    44    45    46    47    48    49    50    51    52    53    54    55    56
+43    44    45    46    47    48    49    50    51    52    53    54    55    56
+43    44    45    46    47    48    49    50    51    52    53    54    55    56
+</code></pre>
+<p>  57 至 70 列</p>
+<pre><code>57    58    59    60    61    62    63    64    65    66    67    68    69    70
+57    58    59    60    61    62    63    64    65    66    67    68    69    70
+57    58    59    60    61    62    63    64    65    66    67    68    69    70
+57    58    59    60    61    62    63    64    65    66    67    68    69    70
+57    58    59    60    61    62    63    64    65    66    67    68    69    70
+</code></pre>
+<p>  71 至 84 列</p>
+<pre><code>71    72    73    74    75    76    77    78    79    80    81    82    83    84
+71    72    73    74    75    76    77    78    79    80    81    82    83    84
+71    72    73    74    75    76    77    78    79    80    81    82    83    84
+71    72    73    74    75    76    77    78    79    80    81    82    83    84
+71    72    73    74    75    76    77    78    79    80    81    82    83    84
+</code></pre>
+<p>  85 至 98 列</p>
+<pre><code>85    86    87    88    89    90    91    92    93    94    95    96    97    98
+85    86    87    88    89    90    91    92    93    94    95    96    97    98
+85    86    87    88    89    90    91    92    93    94    95    96    97    98
+85    86    87    88    89    90    91    92    93    94    95    96    97    98
+85    86    87    88    89    90    91    92    93    94    95    96    97    98
+</code></pre>
+<p>  99 至 100 列</p>
+<pre><code>99   100
+99   100
+99   100
+99   100
+99   100
+</code></pre>
+<p>y同理</p>
+<h3 id="求幂"><a href="#求幂" class="headerlink" title="求幂"></a>求幂</h3><p>A * D</p>
+<h3 id="重复矩阵"><a href="#重复矩阵" class="headerlink" title="重复矩阵"></a>重复矩阵</h3><p><code>repmat</code> 函数用于将一个矩阵重复排列，形成一个更大的矩阵。<code>repmat</code> 函数的语法是 <code>repmat(A, m, n)</code>，其中 <code>A</code> 是要重复的矩阵，<code>m</code> 和 <code>n</code> 分别是矩阵在行和列方向上重复的次数。</p>
+<h3 id="随机矩阵"><a href="#随机矩阵" class="headerlink" title="随机矩阵"></a>随机矩阵</h3><h4 id="rand、randi-和-randn-的区别"><a href="#rand、randi-和-randn-的区别" class="headerlink" title="rand、randi 和 randn 的区别?"></a>rand、randi 和 randn 的区别?</h4><h5 id="1，rand-生成均匀分布的伪随机数。分布在-0-1-之间"><a href="#1，rand-生成均匀分布的伪随机数。分布在-0-1-之间" class="headerlink" title="1，rand 生成均匀分布的伪随机数。分布在(0~1)之间"></a>1，rand 生成均匀分布的伪随机数。分布在(0~1)之间</h5><p>主要语法:	rand(m,n)生成m行n列的均匀分布的伪随机数</p>
+<pre><code>rand(m,n,'double”)生成指定精度的均匀分布的伪随机数，参数还可以是'single'
+
+rand(RandStream,m,n)利用指定的RandStream(我理解为随机种子)生成伪随机数
+</code></pre>
+<p>例子：</p>
+<h5 id="2，randn-生成标准正态分布的伪随机数-均值为0，方差为1"><a href="#2，randn-生成标准正态分布的伪随机数-均值为0，方差为1" class="headerlink" title="2，randn 生成标准正态分布的伪随机数(均值为0，方差为1)"></a>2，randn 生成标准正态分布的伪随机数(均值为0，方差为1)</h5><p>主要语法:和上面一样</p>
+<h5 id="3，randi-生成均匀分布的伪随机整数"><a href="#3，randi-生成均匀分布的伪随机整数" class="headerlink" title="3，randi 生成均匀分布的伪随机整数"></a>3，randi 生成均匀分布的伪随机整数</h5><p>主要语法:	randi(iMax)在开区间(0，iMax)生成均匀分布的伪随机整数</p>
+<pre><code>randi(iMax，m，n)在开区间(0，iMax)生成mXn型随机矩阵
+
+      r= randi([iMin,iMax],m,n)在开区间(iMin，iMax)生成mXn型随机矩阵
+</code></pre>
+<p>例子：<br>E(:,:,2) = randi(5,10,5)  表示最大值是5，然后生成10行5列</p>
+<h3 id="矩阵A的LU分解："><a href="#矩阵A的LU分解：" class="headerlink" title="矩阵A的LU分解："></a>矩阵A的LU分解：</h3><p>将一个矩阵分解为上三角矩阵和一个下三角矩阵</p>
+<p>lu(A)</p>
+<h3 id="矩阵A的QR分解："><a href="#矩阵A的QR分解：" class="headerlink" title="矩阵A的QR分解："></a>矩阵A的QR分解：</h3><p>将一个矩阵分解成正交矩阵和一个上三角矩阵</p>
+<p>qr(A)</p>
+<h3 id="矩阵数据的提取："><a href="#矩阵数据的提取：" class="headerlink" title="矩阵数据的提取："></a>矩阵数据的提取：</h3><h4 id="确定矩阵的大小："><a href="#确定矩阵的大小：" class="headerlink" title="确定矩阵的大小："></a>确定矩阵的大小：</h4><pre><code>size()  	用于矩阵
+length()   	用于向量
+</code></pre>
+<h4 id="元素的提取："><a href="#元素的提取：" class="headerlink" title="元素的提取："></a>元素的提取：</h4><p>A(m,n)表示提取矩阵的第m，n位置处的值<br>注意，m，n不能超出矩阵维度，matlab中起始值为1</p>
+<h4 id="冒号-end提取："><a href="#冒号-end提取：" class="headerlink" title="冒号/end提取："></a>冒号/end提取：</h4><p>A( : , 1)			提取矩阵第一列<br>A(1 ,  :)			提取矩阵第一行<br>A(1 , end )			提取矩阵第一行中的最后一个值<br>A(2 : 2 : end , :)		提取偶数行</p>
+<h2 id="元胞数组"><a href="#元胞数组" class="headerlink" title="元胞数组"></a>元胞数组</h2><h2 id="相当于盒子…往里面装东西"><a href="#相当于盒子…往里面装东西" class="headerlink" title="相当于盒子…往里面装东西"></a>相当于盒子…往里面装东西</h2><h2 id="Eg1：-A-cell-1-6-相当于1-行-6-列得："><a href="#Eg1：-A-cell-1-6-相当于1-行-6-列得：" class="headerlink" title="Eg1：    A = cell(1.6)    相当于1 行 6 列得：[] [] [] [] [] []"></a>Eg1：<br>    A = cell(1.6)    相当于1 行 6 列<br>得：<br>[] [] [] [] [] []</h2><p>接Eg1：<br>A{2} = eye(3)   eye(3)意思是单位矩阵，在主对角线上全是1 ，然后赋值给A中的索引为2的值(即第二个盒子)</p>
+<p>得：<br>     [] [3x3 double] [] [] [] []</p>
+<h2 id="magic-数字-magic就字面意思是魔法，魔术的意思。如3阶魔方是组成3-3的矩阵并且该矩阵无论是横、竖、还是斜三个方向上的三个数的总和是相同的。"><a href="#magic-数字-magic就字面意思是魔法，魔术的意思。如3阶魔方是组成3-3的矩阵并且该矩阵无论是横、竖、还是斜三个方向上的三个数的总和是相同的。" class="headerlink" title="magic(数字)magic就字面意思是魔法，魔术的意思。如3阶魔方是组成3*3的矩阵并且该矩阵无论是横、竖、还是斜三个方向上的三个数的总和是相同的。"></a>magic(数字)<br>magic就字面意思是魔法，魔术的意思。如3阶魔方是组成3*3的矩阵并且该矩阵无论是横、竖、还是斜三个方向上的三个数的总和是相同的。</h2><p>Eg：<br>magic(5)<br>得：<br>17  24  1    8   15<br>23   5   7   14  16<br>4    6   13  20  22<br>10  12  19  21  3<br>11  18  25   2   9 </p>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><h2 id="相当于Python的字典Eg：book-struct-‘name’-‘Machine-Learning’-‘-Data-Mining’-‘price’-30-40-得：book-name-‘Machine-Learning’-‘Data-Mining’-price-30-40"><a href="#相当于Python的字典Eg：book-struct-‘name’-‘Machine-Learning’-‘-Data-Mining’-‘price’-30-40-得：book-name-‘Machine-Learning’-‘Data-Mining’-price-30-40" class="headerlink" title="相当于Python的字典Eg：book = struct(‘name’ , {‘Machine Learning’ ,  ‘ Data Mining’ } , ‘price’ , [30 40])得：book =name : { ‘Machine Learning’  ‘Data Mining’ }price :  [30 40]"></a>相当于Python的字典<br>Eg：<br>book = struct(‘name’ , {‘Machine Learning’ ,  ‘ Data Mining’ } , ‘price’ , [30 40])<br>得：<br>book =<br>name : { ‘Machine Learning’  ‘Data Mining’ }<br>price :  [30 40]</h2><h2 id="接Eg：-book-name得：‘Machine-Learning’-‘Data-Mining’"><a href="#接Eg：-book-name得：‘Machine-Learning’-‘Data-Mining’" class="headerlink" title="接Eg：    book.name得：‘Machine Learning’    ‘Data Mining’"></a>接Eg：<br>    book.name<br>得：<br>‘Machine Learning’    ‘Data Mining’</h2><h2 id="接Eg：book-name-1-获取到name中的第一个值得：‘Machine-Learning’"><a href="#接Eg：book-name-1-获取到name中的第一个值得：‘Machine-Learning’" class="headerlink" title="接Eg：book.name(1)          获取到name中的第一个值得：‘Machine Learning’  "></a>接Eg：<br>book.name(1)          获取到name中的第一个值<br>得：<br>‘Machine Learning’  </h2><p>接Eg：<br>    book.name{1}       获取到name<br>得：<br>Machine Leaning       Data Mining</p>
+<h2 id="循环体的使用："><a href="#循环体的使用：" class="headerlink" title="循环体的使用："></a>循环体的使用：</h2><h3 id="1，for循环"><a href="#1，for循环" class="headerlink" title="1，for循环"></a>1，for循环</h3><h2 id="语法：for-循环变量-初值-：步长-：-终值-执行语句1-……-执行语句nend"><a href="#语法：for-循环变量-初值-：步长-：-终值-执行语句1-……-执行语句nend" class="headerlink" title="语法：for   循环变量 = 初值 ：步长 ： 终值       执行语句1        ……        执行语句nend"></a>语法：<br>for   循环变量 = 初值 ：步长 ： 终值<br>       执行语句1<br>        ……<br>        执行语句n<br>end</h2><p>Eg：</p>
+<p>sum = 0<br>for n = 1：5       %从1循环到5<br>sum = sum + n；<br>end</p>
+<h2 id="得-在Matlab中的命令行输入sum-：sum-15"><a href="#得-在Matlab中的命令行输入sum-：sum-15" class="headerlink" title="得(在Matlab中的命令行输入sum)：sum =15"></a>得(在Matlab中的命令行输入sum)：<br>sum =<br>15</h2><h3 id="2，while循环"><a href="#2，while循环" class="headerlink" title="2，while循环"></a>2，while循环</h3><hr>
+<h2 id="语法：while-条件表达式执行语句1……执行语句nend"><a href="#语法：while-条件表达式执行语句1……执行语句nend" class="headerlink" title="语法：while 条件表达式执行语句1……执行语句nend"></a>语法：<br>while 条件表达式<br>执行语句1<br>……<br>执行语句n<br>end</h2><p>Eg：</p>
+<p>sum = 0<br>count=1<br>whie sum&lt;10<br>sum = sum + count ；<br>count = count + 1；<br>end</p>
+<hr>
+<h3 id="3，if-分支结构"><a href="#3，if-分支结构" class="headerlink" title="3，if 分支结构"></a>3，if 分支结构</h3><h4 id="if…end结构"><a href="#if…end结构" class="headerlink" title="if…end结构"></a>if…end结构</h4><h2 id="语法：if-判断条件表达式语句体end"><a href="#语法：if-判断条件表达式语句体end" class="headerlink" title="语法：if  判断条件表达式语句体end"></a>语法：<br>if  判断条件表达式<br>语句体<br>end</h2><h2 id="n-10m-12-如果条件是真的，则输出‘成立’，如果是假的，则跳过循环if-n-m‘成立’end"><a href="#n-10m-12-如果条件是真的，则输出‘成立’，如果是假的，则跳过循环if-n-m‘成立’end" class="headerlink" title="n = 10m =12%  如果条件是真的，则输出‘成立’，如果是假的，则跳过循环if n>m‘成立’end"></a>n = 10<br>m =12<br>%  如果条件是真的，则输出‘成立’，如果是假的，则跳过循环<br>if n&gt;m<br>‘成立’<br>end</h2><h4 id="if-…-else-…-end结构"><a href="#if-…-else-…-end结构" class="headerlink" title="if ….else ….end结构"></a>if ….else ….end结构</h4><h2 id="语法：if-表达式语句体1else语句体2end"><a href="#语法：if-表达式语句体1else语句体2end" class="headerlink" title="语法：if  表达式语句体1else语句体2end"></a>语法：<br>if  表达式<br>语句体1<br>else<br>语句体2<br>end</h2><h4 id="switch…case…end结构"><a href="#switch…case…end结构" class="headerlink" title="switch…case…end结构"></a>switch…case…end结构</h4><h2 id="语法：switch-表达式（数值或字符串）case-数值或字符串1语句体1；case-数值或字符串2语句体2；…………-otherwise语句体n；end"><a href="#语法：switch-表达式（数值或字符串）case-数值或字符串1语句体1；case-数值或字符串2语句体2；…………-otherwise语句体n；end" class="headerlink" title="语法：switch  表达式（数值或字符串）case 数值或字符串1语句体1；case 数值或字符串2语句体2；………….otherwise语句体n；end"></a>语法：<br>switch  表达式（数值或字符串）<br>case 数值或字符串1<br>语句体1；<br>case 数值或字符串2<br>语句体2；<br>………….<br>otherwise<br>语句体n；<br>end</h2><h1 id="3，Matlab实现绘图："><a href="#3，Matlab实现绘图：" class="headerlink" title="3，Matlab实现绘图："></a>3，Matlab实现绘图：</h1><h2 id="颜色的选择："><a href="#颜色的选择：" class="headerlink" title="颜色的选择："></a>颜色的选择：</h2><p>颜色               字符<br>红			r<br>绿			g<br>蓝			b<br>黄			y<br>粉红			m<br>青			c<br>白			w<br>黑			k</p>
+<h2 id="其他符号的选择："><a href="#其他符号的选择：" class="headerlink" title="其他符号的选择："></a>其他符号的选择：</h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721792146759-aa349e3e-bcd4-4f63-8307-ef5364ecd25c.png#averageHue=%23b0aca6&amp;clientId=u5858cabd-0eba-4&amp;from=paste&amp;height=640&amp;id=u9bbc492d&amp;originHeight=800&amp;originWidth=1319&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1135028&amp;status=done&amp;style=none&amp;taskId=ud7e9a39b-320f-4bb0-8d0e-05e191a08dd&amp;title=&amp;width=1055.2" alt="image.png"></h2><h2 id="Eg-二维图展示-："><a href="#Eg-二维图展示-：" class="headerlink" title="Eg(二维图展示)："></a>Eg(二维图展示)：</h2><h3 id="例1-一条x对应一条y-："><a href="#例1-一条x对应一条y-：" class="headerlink" title="例1(一条x对应一条y)："></a>例1(一条x对应一条y)：</h3><p>x = 0 : 0.01 : 2<em>pi ;       % 在0到2Π之间相互间隔为0.01的数<br>y = sin(x);<br>figure				% 新建立一个幕布<br>plot(x , y)			% 绘制一个二维的平面图<br>title( ‘y = sin(x) ‘)<br>xlabel(‘ x ‘)<br>ylabel(‘ y ‘)<br>xlim( [0 2</em>pi] )     	% 为了画出的图好看，限制画图的x范围</p>
+<p>得：</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721792805247-3b23e1f8-113a-42f1-9f3e-0d0d6edd533d.png#averageHue=%23f5f5f5&amp;clientId=u5858cabd-0eba-4&amp;from=paste&amp;height=506&amp;id=u9d9597aa&amp;originHeight=632&amp;originWidth=701&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=42856&amp;status=done&amp;style=none&amp;taskId=u9587cc40-94a3-4df4-b711-bdeaf7b8015&amp;title=&amp;width=560.8" alt="image.png"></h2><h3 id="例2-一条x对应两条y-："><a href="#例2-一条x对应两条y-：" class="headerlink" title="例2(一条x对应两条y)："></a>例2(一条x对应两条y)：</h3><p>x=0:0.01:20;<br>y1=200<em>exp(-0.05</em>x).<em>sin(x);<br>y2=0.8</em>exp(-0.5*x).<em>sin(10</em>x);<br>figure<br>[AX,H1,H2]=plotyy(x,y1,x,y2,’plot’);<br>set(get(AX(1),’Ylabel’),’String’,’Slow Decay’)<br>set(get(AX(2),’Ylabel’),’String’,’Fast Decay’)<br>xlabel(‘Time’)<br>title(‘rates’)</p>
+<p>得：</p>
+<pre><code>![image.png](https://cdn.nlark.com/yuque/0/2024/png/43278603/1721794215552-b9ec27d6-4175-402e-945c-deb2d1b54b9a.png#averageHue=%23f6f4f3&amp;clientId=u5858cabd-0eba-4&amp;from=paste&amp;height=492&amp;id=ua1ddefdc&amp;originHeight=615&amp;originWidth=713&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=60828&amp;status=done&amp;style=none&amp;taskId=u9dfe2087-8f8a-4d1f-9495-93b0e6e9754&amp;title=&amp;width=570.4)
+</code></pre>
+<p>优化一下曲线：</p>
+<p>x=0:0.01:20;<br>y1=200<em>exp(-0.05</em>x).<em>sin(x);<br>y2=0.8</em>exp(-0.5*x).<em>sin(10</em>x);<br>figure<br>[AX,H1,H2]=plotyy(x,y1,x,y2,’plot’);<br>set(get(AX(1),’Ylabel’),’String’,’Slow Decay’)<br>set(get(AX(2),’Ylabel’),’String’,’Fast Decay’)<br>xlabel(‘Time’)<br>title(‘rates’)<br>set(H1,’LineStyle’,’–’)       % 优化H1曲线<br>set(H2,’LineStyle’,’:’)	      % 优化H2曲线</p>
+<p>得：<br><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721794329438-c0aaa24a-e430-414b-a7ca-b0b1ae4fdad4.png#averageHue=%23f6f5f4&amp;clientId=u5858cabd-0eba-4&amp;from=paste&amp;height=498&amp;id=u8479cab4&amp;originHeight=623&amp;originWidth=702&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=64134&amp;status=done&amp;style=none&amp;taskId=u4498218b-1e29-4fa2-9537-6dd51203830&amp;title=&amp;width=561.6" alt="image.png"></p>
+<hr>
+<h2 id="Eg-三维图展示-："><a href="#Eg-三维图展示-：" class="headerlink" title="Eg(三维图展示)："></a>Eg(三维图展示)：</h2><p>t=0:pi/50:10*pi;<br>plot3(sin(t),cos(t),t)<br>xlabel(‘sin(t)’)<br>ylabel(‘cos(t)’)<br>zlabel(‘t’)<br>grid on      %在图案中加入网格线<br>axis square  %让图案变正方体</p>
+<p>得：<br><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721802220139-f719573d-e8dc-4906-89a5-f0a4662cf075.png#averageHue=%23f2f2f2&amp;clientId=u5858cabd-0eba-4&amp;from=paste&amp;height=490&amp;id=O2tH8&amp;originHeight=612&amp;originWidth=701&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=59636&amp;status=done&amp;style=none&amp;taskId=u4d3bc9d5-cce2-4e82-bad3-983c3c8fa78&amp;title=&amp;width=560.8" alt="image.png"></p>
+<h2 id="Eg-双峰图形-："><a href="#Eg-双峰图形-：" class="headerlink" title="Eg(双峰图形)："></a>Eg(双峰图形)：</h2><p>[x,y,z]=peaks(30);<br>mesh(x,y,z)<br>grid</p>
+<p>得：<br>.<img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721802895236-91fed151-28c7-4fd8-b1ce-50b14f9997fe.png#averageHue=%23f4f4f3&amp;clientId=u5858cabd-0eba-4&amp;from=paste&amp;height=497&amp;id=u92d33607&amp;originHeight=621&amp;originWidth=697&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=83459&amp;status=done&amp;style=none&amp;taskId=u4c8f2eed-ac34-4302-b17d-feea6308baf&amp;title=&amp;width=557.6" alt="image.png"></p>
+<h1 id="-3"><a href="#-3" class="headerlink" title="====================================="></a>=====================================</h1><p><strong>————————接下来就进入进阶学习啦—————————-</strong><br>——————————尽情期待———————————-</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Huangyingyuan&#39;s Life Blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Hungyingyuan
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = '8bc680cde7d34a8e9751dd00a8edfb41';
+  var gaud_map_key = 'c6ca74a817544e8bf510ee74bccb3db1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body>
+</html>

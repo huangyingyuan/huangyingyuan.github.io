@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>备战软考之软件设计师第一章 | Huangyingyuan&#39;s Life Blog</title>
+    <meta name="author" content="Hungyingyuan" />
+    <meta name="description" content="Wishing you a pleasant day" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HUANGYINGYUAN&#39;S LIFE BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>备战软考之软件设计师第一章</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/9/11
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%BD%AF%E8%80%83/" style="color: #ffa2c4">
+                    软考
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="第一页-码制"><a href="#第一页-码制" class="headerlink" title="第一页(码制)"></a>第一页(码制)</h1><p><img src="https://1-1329452382.cos.ap-guangzhou.myqcloud.com/%E7%AC%AC%E4%B8%80%E9%A1%B5.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDp1yxBIkyM1kzpiEd4FU9WlPkrU5vRzpXgGggFlq3q9QOO7ILgsGECvU511ddgT4F&amp;q-sign-time=1728483716;1728487316&amp;q-key-time=1728483716;1728487316&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=af7f079d91b187ad11a334a0866b365e953f0965&amp;x-cos-security-token=1txWFZHhQ0sbDyysjQCTxo7n4vdT1ola4b80f98c63c25b6dcfcef1b1800870b8BPslSxJQ_vYLmyV_PCGYJ60SwhG8azA7FewvGfOYincslUg_3JS36aIK05b8HmNVYfJr57zVb_JJBsK2MHO5S3YqPX7m-QmIfZzOzGS_TeCL20xPTD7uS8p97i3yC0IATapIhc6GtpR5PVsqSYvZ_8AI8aJOvoXrT5NBp8hwpV4tAuGY0YVFq5Q9SoOnIn4B" alt="image.jpg"></p>
+<h1 id="第二页-逻辑运算符"><a href="#第二页-逻辑运算符" class="headerlink" title="第二页(逻辑运算符)"></a>第二页(逻辑运算符)</h1><p><img src="https://1-1329452382.cos.ap-guangzhou.myqcloud.com/%E7%AC%AC%E4%BA%8C%E9%A1%B5.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDSkk_8ML8fy6zOn1KT-kUo5B9B6RD4LTOO6zRH8r141uIy_7Z2aavcPrGYVJQp_Js&amp;q-sign-time=1728470855;1728474455&amp;q-key-time=1728470855;1728474455&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=5a9a4017d014f092283fe7e88f0f2e4a844c74d0&amp;x-cos-security-token=IRs3vAclqaUZvDbRV3TqPTDp9kzBFG4a0b057f499dc9652de6325e637e8e738fBiNWZMxGq69cSKcbml_IA4R9va-QsvrLZyl8267z5pcJBKtdQg-MDmC7F23yEIgXfGefOCCJ9Y0TnXx4u-F5kF6Tz_b9v66aXWkh6TFDwvJLL9Jz1umUCCSNcOaIhY0ZX_IPJP67QgtHim3gn_dhbVx-8cWtXC0VFQQWUhPyVqGRj8Y0AAvpH438X1h7lVHu" alt="image.jpg"></p>
+<h1 id="第三页-校验码"><a href="#第三页-校验码" class="headerlink" title="第三页(校验码)"></a>第三页(校验码)</h1><p><img src="https://1-1329452382.cos.ap-guangzhou.myqcloud.com/%E7%AC%AC%E4%B8%89%E9%A1%B5.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDPuhOvglQecdLj-FnjhuNABZUME8S_zSkOnckoCn2JQWr0l6CZru4aWX4Yxr8EPMv&amp;q-sign-time=1728470893;1728474493&amp;q-key-time=1728470893;1728474493&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=e1bc5954dfb259d1a36e6ffc460b7085a56d350b&amp;x-cos-security-token=1txWFZHhQ0sbDyysjQCTxo7n4vdT1olaff28e825944d1b32b4a17d461457de8bBPslSxJQ_vYLmyV_PCGYJ1vxHRKQDCfg-WkIF8n9sg8JciX_PnSVxbAH-pB--4umnmdUIlhVOiQG36RJ-dnsTNHY8wA-tTfH5qYAoaf4JZu9tt-nyruB7u4ou5j5_KEouYdOU-DaZjzK4keNqshecdVTbSYAGsSReWhHgmRDUBmQoqfoWACBTP_KUcrWUIcb" alt="image.jpg"></p>
+<h1 id="第四页-校验码"><a href="#第四页-校验码" class="headerlink" title="第四页(校验码)"></a>第四页(校验码)</h1><p><img src="https://1-1329452382.cos.ap-guangzhou.myqcloud.com/%E7%AC%AC%E5%9B%9B%E9%A1%B5.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDJ8zu73os1XS89ePqPoT7kDiScyIEAru0YJ4Anns39BFT7R_t9CEcqlM8O1-rZ6Hc&amp;q-sign-time=1728470915;1728474515&amp;q-key-time=1728470915;1728474515&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=47dec3d52862898614e09b71ec5257cea5363633&amp;x-cos-security-token=1txWFZHhQ0sbDyysjQCTxo7n4vdT1olaf38c81198a854a0b4d6723ca8b40f0cdBPslSxJQ_vYLmyV_PCGYJ22xEpCTzjQ48d5sURrv6VyhOCT3KXZsthOiXghpN-FLuQ7KmPWbMETm5RGtux2nXaERtjR--iUZbkSiumrpD4GMV9JdEbdcNybhsJnGnbzwMspPnuzijaWXi_TfHxAiUqCWoLwHs4f29ueUBdV5t2mcr8C-4WjhGM5seZ8hYURS" alt="image.jpg"></p>
+<h1 id="第五页-计算机结构"><a href="#第五页-计算机结构" class="headerlink" title="第五页(计算机结构)"></a>第五页(计算机结构)</h1><p><img src="https://1-1329452382.cos.ap-guangzhou.myqcloud.com/%E7%AC%AC%E4%BA%94%E9%A1%B5.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDdB9avazqleUDETQR4Qiv0iKeUGUbYz2FNc5BLU_OZc0DuTac7xx7Af8echGxeCFP&amp;q-sign-time=1728470931;1728474531&amp;q-key-time=1728470931;1728474531&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=07fbf176bcab7d426823a5a6bdcd67474e71c7be&amp;x-cos-security-token=IRs3vAclqaUZvDbRV3TqPTDp9kzBFG4aa0c1a395e5f5fb9a66a0bdf8a857925aBiNWZMxGq69cSKcbml_IAwsV_-IuGUzJFVR9rAZ5XGtSvPoU_7vI4Nxjhly0twTqkmX8WlArv13iuB7LV_9fIdDQ1osAiAFCAdxFvBPCy319tL4cO7Z0ryGjE451zq290XIjYy5qWtV-RU8cG3hNb_ccnPWS8hh7KM4gX4G6j6-QQgx4oZ4mOQ3wtXRu1BZi" alt="image.jpg"></p>
+<h1 id="第六页-寻址方式"><a href="#第六页-寻址方式" class="headerlink" title="第六页(寻址方式)"></a>第六页(寻址方式)</h1><p><img src="https://1-1329452382.cos.ap-guangzhou.myqcloud.com/%E7%AC%AC%E5%85%AD%E9%A1%B5.jpg?q-sign-algorithm=sha1&amp;q-ak=AKID5md-XX44sEJUe0lnuIFTHSqfyjA7IfBMo-U4ghP12_sNz6yyroPDiRjHQ-_uEv3D&amp;q-sign-time=1728470951;1728474551&amp;q-key-time=1728470951;1728474551&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=9d745eaae6ee10d8d19213481f37bf9b4457dfcc&amp;x-cos-security-token=IRs3vAclqaUZvDbRV3TqPTDp9kzBFG4a2d968303f216325d671e7e300b1891feBiNWZMxGq69cSKcbml_IAwqxDYbt1wsG9NXbvEHhG1HUroUIKUotg0Dn1hp-noq64kA9L62kfZnNPGucwPgHOoSfEWut9Jn--thIEN1tk7rMhJl5s9v-C0O5q149o3PEUWryRcrRTZf5hIvSqn-LQiQjWIOJNOOdXO0K_mcvAu1GpZVa8sGjiqQ0oHIVVHDq" alt="image.jpg"></p>
+<h1 id="第七页-CISC与PISC"><a href="#第七页-CISC与PISC" class="headerlink" title="第七页(CISC与PISC)"></a>第七页(CISC与PISC)</h1><p><img src="https://1-1329452382.cos.ap-guangzhou.myqcloud.com/%E7%AC%AC%E4%B8%83%E9%A1%B5.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDCLaYYoWE3NrG8y8HSsjVB4M0_KVkY6u6Ehj9Vaas391lNj2bqxD1kvcv6ra9Yv5q&amp;q-sign-time=1728470975;1728474575&amp;q-key-time=1728470975;1728474575&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=216e30aef564e455c2154b395f5f0b78cd828ad0&amp;x-cos-security-token=IRs3vAclqaUZvDbRV3TqPTDp9kzBFG4ab65ad9a63adda0fb7fda09bf893b01d2BiNWZMxGq69cSKcbml_IA1BrABqmluMKvkVdl-rBmyu4gGzeM1fBgxUv40fD08nZwlg9_5M466e0f5S9ExhWCSunHBiVcMsdCy3E0pvbJeO4iy-SG2EtUDckHNoVDp0sk6UIy-O1Off2M7mtBgfh1ngAQrQRlmfzecFdrwxf5ft_9dCkZ3Az9Iqnljxb3AOB" alt="image.jpg"></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Huangyingyuan&#39;s Life Blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Hungyingyuan
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = '8bc680cde7d34a8e9751dd00a8edfb41';
+  var gaud_map_key = 'c6ca74a817544e8bf510ee74bccb3db1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body>
+</html>
