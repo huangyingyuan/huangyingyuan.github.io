@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>How to create your Blog | Huangyingyuan's Life Blog</title><meta name="author" content="Hungyingyuan"><meta name="copyright" content="Hungyingyuan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="欢迎学习如何创建属于自己的Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to create your Blog">
+<meta property="og:url" content="https://huangyingyuan.github.io/year/07/15/How-to-create-your-Blog/index.html">
+<meta property="og:site_name" content="Huangyingyuan&#39;s Life Blog">
+<meta property="og:description" content="欢迎学习如何创建属于自己的Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://huangyingyuan.github.io//images/hyy.jpg">
+<meta property="article:published_time" content="2024-07-15T02:12:23.000Z">
+<meta property="article:modified_time" content="2024-07-15T03:43:07.106Z">
+<meta property="article:author" content="Hungyingyuan">
+<meta property="article:tag" content="study">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://huangyingyuan.github.io//images/hyy.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://huangyingyuan.github.io/year/07/15/How-to-create-your-Blog/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'How to create your Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-15 11:43:07'
+}</script><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="web_bg" style="background-image: url(/images/manbreakgroud.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/%5Cimages%5Chyy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> Home</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/house"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> About</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/id-card"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/about"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Archives</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/box-archive"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/archives"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Categories</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bookmark"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/categories"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Tags</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/tags"><span> link</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Huangyingyuan's Life Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">How to create your Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> Home</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/house"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> About</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/id-card"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/about"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Archives</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/box-archive"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/archives"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Categories</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bookmark"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/categories"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Tags</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/tags"><span> link</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">How to create your Blog</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-15T02:12:23.000Z" title="发表于 2024-07-15 10:12:23">2024-07-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-15T03:43:07.106Z" title="更新于 2024-07-15 11:43:07">2024-07-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>欢迎学习如何创建属于自己的Blog</p>
+<!-- more -->
+
+
+
+<p>——-如何创建个人博客(hexo+Github)——–</p>
+<h2 id="博客由“生成框架-hexo-”，“托管平台-GitHub-”，“静态网站托管”来构建而成"><a href="#博客由“生成框架-hexo-”，“托管平台-GitHub-”，“静态网站托管”来构建而成" class="headerlink" title="博客由“生成框架(hexo)”，“托管平台(GitHub)”，“静态网站托管”来构建而成"></a>博客由“生成框架(hexo)”，“托管平台(GitHub)”，“静态网站托管”来构建而成</h2><p>附Hexo官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>附GitHub官网：<a target="_blank" rel="noopener" href="https://github.com/huangyingyuan">https://github.com/</a></p>
+<h1 id="第一步，先配置开发环境（博客生成框架）"><a href="#第一步，先配置开发环境（博客生成框架）" class="headerlink" title="第一步，先配置开发环境（博客生成框架）"></a>第一步，先配置开发环境（博客生成框架）</h1><p>个人用的是windows系统</p>
+<p>配置框架：hexo</p>
+<h2 id="输入网址-codejs-org-配置下载codejs-下载完成后"><a href="#输入网址-codejs-org-配置下载codejs-下载完成后" class="headerlink" title="输入网址(codejs.org)配置下载codejs,下载完成后"></a>输入网址(codejs.org)配置下载codejs,下载完成后</h2><h2 id="打开codejs小窗口"><a href="#打开codejs小窗口" class="headerlink" title="打开codejs小窗口"></a>打开codejs小窗口</h2><p>查看code版本：code -v</p>
+<p>npm版本:       npm _v</p>
+<p>能正常看到版本信息即可说明配置完成</p>
+<h2 id="插入疑惑？npm是啥？"><a href="#插入疑惑？npm是啥？" class="headerlink" title="插入疑惑？npm是啥？"></a>插入疑惑？npm是啥？</h2><p>npm（node package manager）：node.js 的包管理器，用于node插件管理（包括安装、卸载、管理依赖等） ，npm 是随同 node.js 一起安装的包管理工具，能解决 node.js 代码部署上的很多问题</p>
+<h2 id="修改npm的网源-因为npm官网源下载速度比较慢"><a href="#修改npm的网源-因为npm官网源下载速度比较慢" class="headerlink" title="修改npm的网源(因为npm官网源下载速度比较慢)"></a>修改npm的网源(因为npm官网源下载速度比较慢)</h2><p>推荐用TB(淘宝)的网源：<br>npm config get registry # 查看原来的源</p>
+<p>npm config set registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> # 修改为淘宝源</p>
+<p>npm config get registry # 查看现在的源</p>
+<h2 id="有了npm，安装hexo就方便了，只需要一行代码"><a href="#有了npm，安装hexo就方便了，只需要一行代码" class="headerlink" title="有了npm，安装hexo就方便了，只需要一行代码"></a>有了npm，安装hexo就方便了，只需要一行代码</h2><p>npm install hexo-cli -g # 全局安装hexo命令行工具</p>
+<h2 id="插入疑惑？hexo是啥？"><a href="#插入疑惑？hexo是啥？" class="headerlink" title="插入疑惑？hexo是啥？"></a>插入疑惑？hexo是啥？</h2><p>Hexo 是一个快速、简洁且高效的博客框架。它允许用户使用 Markdown 语言编写内容，并将其渲染为静态网页。它相当于与一个网站的主题模板，只需要做简单的配置就能够完成页面的渲染。其主要特点包括快速部署，Markdown 支持，灵活的布局，丰富的插件。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>在桌面右键建立一个名为MyBlog文件夹，点进文件夹里，再次右键，点击更多，打开Open Git Bash here(目的是在文件夹目录中下载hexo)<br>上步操作后，输入hexo init“你的目录名”<br>等待下载一系列文件在文件夹中即可</p>
+<ol>
+<li><p>在github平台上注册账号(需要翻墙，因为是国外的站点)</p>
+</li>
+<li><p>在github平台上创建库</p>
+<p> —-找到“Start a new respository”然后在CesteoNew右边输入自己的仓库的名称(最好是“自己的用户名.github.io”)</p>
+</li>
+</ol>
+<h2 id="在git小窗口上初始化自己的邮箱和用户名"><a href="#在git小窗口上初始化自己的邮箱和用户名" class="headerlink" title="在git小窗口上初始化自己的邮箱和用户名"></a>在git小窗口上初始化自己的邮箱和用户名</h2><p>初始化用户名： git config –global user.name “自己的用户名”</p>
+<p>初始化邮箱：	git config -gloobal user.email “自己的邮箱”</p>
+<p>疑惑？<br>如何自己检查自己的用户名与邮箱是否被记住？</p>
+<p>检查自己的用户名—-输入代码“git config -global user.name</p>
+<p>检查自己的郵箱——输入代码“git config -global user.email</p>
+<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>先在git小窗口，输入“ssh-keygen -t rsa -C “你的邮箱”。然后一直按回车，直到出现一串代码，把代码复制下来(用在后面的SSH key提取)</p>
+<p>点开Github，点击头像，点击setting然后找到SSH and GPG keys，进入里面，new一个SSH key</p>
+<p>—–在Tille处，随便填即可</p>
+<p>—–下面的key粘贴刚才的代码进去即可（产生一个简单的连接）</p>
+<p>验证是否连接成功？</p>
+<p>在小窗口输入“ssh -T <a href="mailto:git@github.com">git@github.com</a>”  出现yes与no的问答，回答yes即可</p>
+<h3 id="配置连接来上传部署"><a href="#配置连接来上传部署" class="headerlink" title="配置连接来上传部署"></a>配置连接来上传部署</h3><p>(获取仓库地址)点开Github，点击左上角头像，下面有一串网址，点击进去后，点击SSH键，复制那个码(用于下面加进去的repository后的网址)</p>
+<p>然后在文件‘_config.yml’中用记事本打开，在后面几行输入如下：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1712670272067-bea9c831-2fd5-4043-ae1b-3ad791d7d670.png#averageHue=%23eeedec&amp;id=LEsax&amp;originHeight=157&amp;originWidth=1343&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title="></p>
+<p>注意，在冒号后面是要加一个空格的，否则报错</p>
+<p>保存好修改的内容后，将git用cd切换到对应的目录内，然后输入hexo d 来上传文件到github内，出现以下代码即可</p>
+<p><img src="https://camo.githubusercontent.com/869baa856bc7d205940d71301116679045c687966d2f33bf108c042b6e0034f9/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032342f706e672f34333237383630332f313731323637303237323332322d61333630353537652d653066392d346539352d626363622d3236643966376363363732652e706e6723617665726167654875653d2532333063306130372669643d55466d7738266f726967696e4865696768743d333632266f726967696e57696474683d373238266f726967696e616c547970653d62696e61727926726174696f3d3126726f746174696f6e3d302673686f775469746c653d66616c7365267374617475733d646f6e65267374796c653d6e6f6e65267469746c653d#from=url&amp;id=lwIrB&amp;originHeight=362&amp;originWidth=728&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title="></p>
+<p>可以在github上的code查看是否上传成功</p>
+<h2 id="重要的-config-yml文件"><a href="#重要的-config-yml文件" class="headerlink" title="重要的_config.yml文件"></a>重要的_config.yml文件</h2><h3 id="config-yml文件是干嘛用的？"><a href="#config-yml文件是干嘛用的？" class="headerlink" title="_config.yml文件是干嘛用的？"></a>_config.yml文件是干嘛用的？</h3><p>是 Hexo 博客框架的主配置文件，用于配置和管理整个 Hexo 项目的各种设置。这个文件通常位于 Hexo 项目的根目录下，包含了大量的配置选项，可以让您自定义博客的行为、外观和功能。</p>
+<h3 id="继续修改-config-yml文件里的内容"><a href="#继续修改-config-yml文件里的内容" class="headerlink" title="继续修改_config,yml文件里的内容"></a>继续修改_config,yml文件里的内容</h3><p>(主要修改url，将你打开hexo的网址复制粘贴到url位置就可以，title是指标题，subtitle是副标题，author是指自己的称呼，自行修改即可)<br>    统一资源定位符（Uniform Resource Locator）”简称为URL。<img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1712670273010-5496424d-0f11-40ce-ac3e-fbe677e48a35.png#averageHue=%23f1f0f0&amp;id=pck3w&amp;originHeight=521&amp;originWidth=1763&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title="><br>上传后去hexo界面自己刷新一下就好了，主题之类的就会发生变化</p>
+<h2 id="如何部署网站"><a href="#如何部署网站" class="headerlink" title="如何部署网站"></a>如何部署网站</h2><p>要将 Hexo 博客从本地（localhost）部署到一个永久可以访问的地址上，通常有两种常见的方法：</p>
+<ol>
+<li><strong>部署到 GitHub Pages</strong></li>
+<li><strong>部署到其他静态网站托管服务</strong></li>
+</ol>
+<p>我是使用“部署到GitHub Pages”来实现的(推荐，推荐原因：方便)</p>
+<h3 id="1-部署到-GitHub-Pages"><a href="#1-部署到-GitHub-Pages" class="headerlink" title="1. 部署到 GitHub Pages"></a>1. 部署到 GitHub Pages</h3><h4 id="步骤-1：创建-GitHub-仓库"><a href="#步骤-1：创建-GitHub-仓库" class="headerlink" title="步骤 1：创建 GitHub 仓库"></a>步骤 1：创建 GitHub 仓库</h4><ol>
+<li>登录 GitHub 并创建一个新的仓库，命名为 <code>username.github.io</code>，其中 <code>username</code> 是你的 GitHub 用户名。</li>
+</ol>
+<h4 id="步骤-2：配置-Hexo-部署设置"><a href="#步骤-2：配置-Hexo-部署设置" class="headerlink" title="步骤 2：配置 Hexo 部署设置"></a>步骤 2：配置 Hexo 部署设置</h4><p>在 Hexo 项目的根目录下找到 <code>_config.yml</code> 文件，打开并找到 <code>deploy</code> 部分，添加如下配置：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/username/username.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></tbody></table></figure>
+<p>将 <code>username</code> 替换为你的 GitHub 用户名。</p>
+<p>如果你的仓库默认分支是 <code>master</code> 而不是 <code>main</code>，需要将 <code>branch</code> 设置为 <code>master</code>。</p>
+<h4 id="步骤-3：安装-Hexo-部署插件"><a href="#步骤-3：安装-Hexo-部署插件" class="headerlink" title="步骤 3：安装 Hexo 部署插件"></a>步骤 3：安装 Hexo 部署插件</h4><p>在 Hexo 项目的根目录下，安装 <code>hexo-deployer-git</code> 插件：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="步骤-4：生成和部署网站"><a href="#步骤-4：生成和部署网站" class="headerlink" title="步骤 4：生成和部署网站"></a>步骤 4：生成和部署网站</h4><p>生成并部署你的网站：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<p>运行上述命令后，你的网站将被生成并推送到 GitHub Pages 仓库。你可以在浏览器中访问 <code>https://username.github.io</code> 来查看你的博客。在博客的setting中可以找到你仓库下对应的Pages下可以查看到</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/43278603/1721008087320-cdaaef2f-dcb3-4af9-bf78-e22b019f28b2.png#averageHue=%23fefefd&amp;clientId=ua7778359-7786-4&amp;from=paste&amp;height=721&amp;id=u8af60f87&amp;originHeight=901&amp;originWidth=1708&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=152614&amp;status=done&amp;style=none&amp;taskId=u50e0f8b4-bd16-45dd-87d8-c4bfd67721a&amp;title=&amp;width=1366.4" alt="image.png"></p>
+<h3 id="2-部署到其他静态网站托管服务"><a href="#2-部署到其他静态网站托管服务" class="headerlink" title="2. 部署到其他静态网站托管服务"></a>2. 部署到其他静态网站托管服务</h3><p>如果你不想使用 GitHub Pages，你也可以选择其他静态网站托管服务，如 Netlify、Vercel 或者 GitLab Pages。</p>
+<h4 id="部署到-Netlify"><a href="#部署到-Netlify" class="headerlink" title="部署到 Netlify"></a>部署到 Netlify</h4><ol>
+<li>创建一个 Netlify 账号并登录。</li>
+<li>新建一个站点并关联到你的 GitHub 仓库。</li>
+<li>在构建设置中，将构建命令设置为 <code>hexo generate</code>，将发布目录设置为 <code>public</code>。</li>
+<li>保存并部署。</li>
+</ol>
+<p>Netlify 将自动生成并部署你的网站，你可以在 Netlify 提供的 URL 上访问你的网站。</p>
+<h4 id="部署到-Vercel"><a href="#部署到-Vercel" class="headerlink" title="部署到 Vercel"></a>部署到 Vercel</h4><ol>
+<li>创建一个 Vercel 账号并登录。</li>
+<li>新建一个项目并关联到你的 GitHub 仓库。</li>
+<li>在项目设置中，将构建命令设置为 <code>hexo generate</code>，将输出目录设置为 <code>public</code>。</li>
+<li>保存并部署。</li>
+</ol>
+<p>Vercel 将自动生成并部署你的网站，你可以在 Vercel 提供的 URL 上访问你的网站。</p>
+<h3 id="3-配置自定义域名"><a href="#3-配置自定义域名" class="headerlink" title="3. 配置自定义域名"></a>3. 配置自定义域名</h3><p>无论你选择哪种托管服务，你都可以配置一个自定义域名来访问你的网站。</p>
+<ol>
+<li>购买一个域名并登录到你的域名注册商的控制面板。</li>
+<li>添加一个 CNAME 记录，指向你的托管服务提供的域名。例如，对于 GitHub Pages，CNAME 记录应该指向 <code>username.github.io</code>。</li>
+<li>在你的 Hexo 项目根目录下的 <code>source</code> 文件夹中创建一个名为 <code>CNAME</code> 的文件，文件内容是你的自定义域名（例如，<code>www.yourdomain.com</code>）。</li>
+<li>部署你的网站，托管服务将使用你的自定义域名。</li>
+</ol>
+<p>通过以上步骤，你可以将你的 Hexo 博客从本地部署到一个永久可以访问的地址上，并且可以使用自定义域名来访问你的博客</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在自己部署的GitHub项目的文件下，使用git bash打开</p>
+<h2 id="1，上传文章到hexo上"><a href="#1，上传文章到hexo上" class="headerlink" title="1，上传文章到hexo上"></a>1，上传文章到hexo上</h2><p>—在git的小窗口，输入hexo new “文章的新名字”，就可以生成一篇新的文章</p>
+<p>在自己的目录下，点击sourse，点post，即可看到文章，点进去后用记事本编辑内容即可，写完文章后，在git上输入hexo g 来上传文章，如果报错，可能是要删除tig下面的符号即可(具体说明原因我也不清楚)</p>
+<p>上传成功后可以在自己的目录下，点击public，里面有year，点进去后可以看到对应日期的文章(是同步GitHub上传的文章)</p>
+<p>hexo d(hexo deploy)    自动生成网站静态文件，并部署到设定的仓库<br>。<br>hexo clean             清除缓存文件&nbsp;db.json&nbsp;和已生成的静态文件&nbsp;public。</p>
+<p>hexo g (hexo generate)  生成网站静态文件到默认设置的&nbsp;public&nbsp;文件夹</p>
+<h2 id="2，如何删除文件夹"><a href="#2，如何删除文件夹" class="headerlink" title="2，如何删除文件夹"></a>2，如何删除文件夹</h2><p>先在sourse上删除文件，然后在public上删除文件，最后在git小窗口输入<br>hexo clean来刷新，后来用hexo g，再用hexo d ，即可删除内容</p>
+<h1 id="优化界面"><a href="#优化界面" class="headerlink" title="优化界面"></a>优化界面</h1><p>依旧是在自己部署的GitHub项目的文件下，在与_config.yml同级文件下，命名一个为themes的文件夹，里面存放在别人的Hithub开源的主题代码，拉取到该文件themes下即可</p>
+<p>开源网址(一时嫖一时爽，天天嫖天天爽)<br>有多种主题自己选：    <a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a><br>我非常喜欢逛的博主(最喜欢白嫖他的东西)：<a target="_blank" rel="noopener" href="https://www.fomal.cc/page/2/#content-inner">https://www.fomal.cc/page/2/#content-inner</a></p>
+<h2 id="部署主题"><a href="#部署主题" class="headerlink" title="部署主题"></a>部署主题</h2><p>具体流程：</p>
+<h3 id="步骤-1：安装-Hexo"><a href="#步骤-1：安装-Hexo" class="headerlink" title="步骤 1：安装 Hexo"></a>步骤 1：安装 Hexo</h3><p>如果你还没有安装 Hexo，请先安装：<br>npm install -g hexo-cli</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>步骤 2：创建一个新的 Hexo 项目</p>
+<p>在你的工作目录中创建一个新的 Hexo 项目：<br>hexo init myblog<br>cd myblog<br>npm install</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p>步骤 3：选择并下载一个 Hexo 主题</p>
+<p>你可以从 Hexo 官方主题网站 或者其他第三方网站选择一个你喜欢的主题。以下是安装主题的示例：<br>打开主题的 GitHub 页面，找到下载地址。<br>在 Hexo 项目的根目录下，克隆主题仓库：(注意将对应的参数替换成自己的)<br>git clone <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-theme-landscape">https://github.com/hexojs/hexo-theme-landscape</a> themes/landscape</p>
+<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><p>步骤 4：修改 Hexo 配置文件</p>
+<p>在 Hexo 项目的根目录下找到 _config.yml 文件，打开并修改 theme 字段为你下载的主题名称：</p>
+<h4 id="Hexo-Configuration"><a href="#Hexo-Configuration" class="headerlink" title="Hexo Configuration"></a>Hexo Configuration</h4><p>Docs: <a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration.html">https://hexo.io/docs/configuration.html</a></p>
+<p>Source: <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/">https://github.com/hexojs/hexo/</a></p>
+<h4 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h4><p>title: Huangyingyuan’s new Blog</p>
+<p>subtitle: ‘Welcome to My Blog’</p>
+<p>description: ‘programming study’</p>
+<p>author: Hungyingyuan</p>
+<p>language: zh-CN</p>
+<p>timezone: ‘Asia/Shanghai’</p>
+<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><p>url: （自己的GitHub仓库地址）</p>
+<p>permalink: year/:month/:day/:title/</p>
+<p>pretty_urls:</p>
+<p>  trailing_index: false</p>
+<p>  trailing_html: false</p>
+<h4 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h4><p>source_dir: source</p>
+<p>public_dir: public</p>
+<h4 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h4><p>new_post_name: :title.md</p>
+<p>default_layout: post</p>
+<h4 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h4><p>theme: landscape  # 这里修改为你下载的主题名称</p>
+<h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><p>步骤 5：配置主题</p>
+<p>大多数 Hexo 主题都有自己的配置文件。通常，这些配置文件位于主题目录下的 _config.yml 文件中。你可以根据需要修改这些配置文件以定制主题样式和功能。<br>cd themes/landscape<br>打开并编辑 _config.yml 文件，根据需要进行配置。例如：</p>
+<h4 id="Landscape-theme-configuration"><a href="#Landscape-theme-configuration" class="headerlink" title="Landscape theme configuration"></a>Landscape theme configuration</h4><p>menu:<br>  Home: /<br>  Archives: /archives<br>widgets:</p>
+<ul>
+<li>category</li>
+<li>tag</li>
+<li>tagcloud</li>
+<li>recent_posts</li>
+</ul>
+<h4 id="配置其他参数，如社交媒体链接、分页、侧边栏等"><a href="#配置其他参数，如社交媒体链接、分页、侧边栏等" class="headerlink" title="配置其他参数，如社交媒体链接、分页、侧边栏等"></a>配置其他参数，如社交媒体链接、分页、侧边栏等</h4><p>rss: /atom.xml<br>favicon: /favicon.png</p>
+<h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3><p>步骤 6：生成和部署网站</p>
+<p>在完成配置后，回到 Hexo 项目的根目录，生成并部署你的网站：<br>cd ../../<br>hexo clean<br>hexo generate<br>hexo deploy</p>
+<h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3><p>步骤 7：本地查看效果</p>
+<p>你可以在本地启动一个服务器来查看效果：<br>hexo server<br>然后在浏览器中打开 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 查看你的网站。</p>
+<p>这篇新鲜出炉的教程如果我写得不好的话，那还是挺好的</p>
+<h1 id="待完未续……敬请期待。。。。。。。。。。"><a href="#待完未续……敬请期待。。。。。。。。。。" class="headerlink" title="待完未续……敬请期待。。。。。。。。。。"></a>待完未续……敬请期待。。。。。。。。。。</h1><h2 id="看到都看到这里了，微信一键发个红包，支付宝也不介意"><a href="#看到都看到这里了，微信一键发个红包，支付宝也不介意" class="headerlink" title="看到都看到这里了，微信一键发个红包，支付宝也不介意.."></a>看到都看到这里了，微信一键发个红包，支付宝也不介意..</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://huangyingyuan.github.io">Hungyingyuan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://huangyingyuan.github.io/year/07/15/How-to-create-your-Blog/">https://huangyingyuan.github.io/year/07/15/How-to-create-your-Blog/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://huangyingyuan.github.io" target="_blank">Huangyingyuan's Life Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/study/">study</a></div><div class="post-share"><div class="social-share" data-image="/%5Cimages%5Chyy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/year/07/15/%E2%80%9C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%9D%E4%B9%8B-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83-1/" title="“机器学习”之  从入门到放弃(1)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">“机器学习”之  从入门到放弃(1)</div></div><div class="info-2"><div class="info-item-1">1，“机器学习”的基础定义从广义上来说：机器学习是让机器学习，实现直接用编程无法实现的功能的做法从意义上来说：是利用数据，训练出模型，实现数据预测的效果总的来说：机器学习是由“预测”与“训练”的过程，得出未知的定律让我们将其与人学习进行对比：  2，Python机器学习的六大库1、NumPy如果没有 NumPy，数据科学将是不完整的。它是一个可以进行科学计算的 Python 软件包。NumPy 是一个神奇 的多维数组对象库。它们协同工作，降低了程序的计算复杂性。 2、SciPySciPy 是 Python 人工智能项目的另一个热门库，也是涉及数学和工程领域中， Python 程序员科学和重度计算的 首选。它提供了数值优化和集成的例程，对于初学者来说非常友好。 3、Scikit-Learn这个库建立在 NumPy 和 SciPy 之上，主要用于监督和无监督学习。它是一个用于数据挖掘和数据分析的完美工 具。 4、PandasPandas 是开源的 Python...</div></div></div></a><a class="pagination-related" href="/year/07/14/I-m-coming/" title="I'm coming"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">I'm coming</div></div><div class="info-2"><div class="info-item-1">记录回归，我会持续更新后续的学习内容 </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/%5Cimages%5Chyy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Hungyingyuan</div><div class="author-info-description">希望你能学有所成</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E7%94%B1%E2%80%9C%E7%94%9F%E6%88%90%E6%A1%86%E6%9E%B6-hexo-%E2%80%9D%EF%BC%8C%E2%80%9C%E6%89%98%E7%AE%A1%E5%B9%B3%E5%8F%B0-GitHub-%E2%80%9D%EF%BC%8C%E2%80%9C%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E6%89%98%E7%AE%A1%E2%80%9D%E6%9D%A5%E6%9E%84%E5%BB%BA%E8%80%8C%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text">博客由“生成框架(hexo)”，“托管平台(GitHub)”，“静态网站托管”来构建而成</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%8C%E5%85%88%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E5%8D%9A%E5%AE%A2%E7%94%9F%E6%88%90%E6%A1%86%E6%9E%B6%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">第一步，先配置开发环境（博客生成框架）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E7%BD%91%E5%9D%80-codejs-org-%E9%85%8D%E7%BD%AE%E4%B8%8B%E8%BD%BDcodejs-%E4%B8%8B%E8%BD%BD%E5%AE%8C%E6%88%90%E5%90%8E"><span class="toc-number">1.</span> <span class="toc-text">输入网址(codejs.org)配置下载codejs,下载完成后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80codejs%E5%B0%8F%E7%AA%97%E5%8F%A3"><span class="toc-number">2.</span> <span class="toc-text">打开codejs小窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E7%96%91%E6%83%91%EF%BC%9Fnpm%E6%98%AF%E5%95%A5%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">插入疑惑？npm是啥？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9npm%E7%9A%84%E7%BD%91%E6%BA%90-%E5%9B%A0%E4%B8%BAnpm%E5%AE%98%E7%BD%91%E6%BA%90%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83%E6%85%A2"><span class="toc-number">4.</span> <span class="toc-text">修改npm的网源(因为npm官网源下载速度比较慢)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E4%BA%86npm%EF%BC%8C%E5%AE%89%E8%A3%85hexo%E5%B0%B1%E6%96%B9%E4%BE%BF%E4%BA%86%EF%BC%8C%E5%8F%AA%E9%9C%80%E8%A6%81%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">有了npm，安装hexo就方便了，只需要一行代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E7%96%91%E6%83%91%EF%BC%9Fhexo%E6%98%AF%E5%95%A5%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">插入疑惑？hexo是啥？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">6.1.</span> <span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8git%E5%B0%8F%E7%AA%97%E5%8F%A3%E4%B8%8A%E5%88%9D%E5%A7%8B%E5%8C%96%E8%87%AA%E5%B7%B1%E7%9A%84%E9%82%AE%E7%AE%B1%E5%92%8C%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-number">7.</span> <span class="toc-text">在git小窗口上初始化自己的邮箱和用户名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH"><span class="toc-number">7.1.</span> <span class="toc-text">配置SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5%E6%9D%A5%E4%B8%8A%E4%BC%A0%E9%83%A8%E7%BD%B2"><span class="toc-number">7.2.</span> <span class="toc-text">配置连接来上传部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84-config-yml%E6%96%87%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">重要的_config.yml文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#config-yml%E6%96%87%E4%BB%B6%E6%98%AF%E5%B9%B2%E5%98%9B%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="toc-number">8.1.</span> <span class="toc-text">_config.yml文件是干嘛用的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E4%BF%AE%E6%94%B9-config-yml%E6%96%87%E4%BB%B6%E9%87%8C%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">8.2.</span> <span class="toc-text">继续修改_config,yml文件里的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99"><span class="toc-number">9.</span> <span class="toc-text">如何部署网站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-Pages"><span class="toc-number">9.1.</span> <span class="toc-text">1. 部署到 GitHub Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%88%9B%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93"><span class="toc-number">9.1.1.</span> <span class="toc-text">步骤 1：创建 GitHub 仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E9%85%8D%E7%BD%AE-Hexo-%E9%83%A8%E7%BD%B2%E8%AE%BE%E7%BD%AE"><span class="toc-number">9.1.2.</span> <span class="toc-text">步骤 2：配置 Hexo 部署设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E5%AE%89%E8%A3%85-Hexo-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6"><span class="toc-number">9.1.3.</span> <span class="toc-text">步骤 3：安装 Hexo 部署插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99"><span class="toc-number">9.1.4.</span> <span class="toc-text">步骤 4：生成和部署网站</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%83%A8%E7%BD%B2%E5%88%B0%E5%85%B6%E4%BB%96%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1"><span class="toc-number">9.2.</span> <span class="toc-text">2. 部署到其他静态网站托管服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0-Netlify"><span class="toc-number">9.2.1.</span> <span class="toc-text">部署到 Netlify</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0-Vercel"><span class="toc-number">9.2.2.</span> <span class="toc-text">部署到 Vercel</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D"><span class="toc-number">9.3.</span> <span class="toc-text">3. 配置自定义域名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%BC%8C%E4%B8%8A%E4%BC%A0%E6%96%87%E7%AB%A0%E5%88%B0hexo%E4%B8%8A"><span class="toc-number">1.</span> <span class="toc-text">1，上传文章到hexo上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%BC%8C%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">2.</span> <span class="toc-text">2，如何删除文件夹</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="toc-number"></span> <span class="toc-text">优化界面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">部署主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%AE%89%E8%A3%85-Hexo"><span class="toc-number">1.1.</span> <span class="toc-text">步骤 1：安装 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-1"><span class="toc-number">1.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-2"><span class="toc-number">1.4.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hexo-Configuration"><span class="toc-number">1.4.1.</span> <span class="toc-text">Hexo Configuration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Site"><span class="toc-number">1.4.2.</span> <span class="toc-text">Site</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL"><span class="toc-number">1.4.3.</span> <span class="toc-text">URL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Directory"><span class="toc-number">1.4.4.</span> <span class="toc-text">Directory</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Writing"><span class="toc-number">1.4.5.</span> <span class="toc-text">Writing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Extensions"><span class="toc-number">1.4.6.</span> <span class="toc-text">Extensions</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-3"><span class="toc-number">1.5.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Landscape-theme-configuration"><span class="toc-number">1.5.1.</span> <span class="toc-text">Landscape theme configuration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%85%B6%E4%BB%96%E5%8F%82%E6%95%B0%EF%BC%8C%E5%A6%82%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E9%93%BE%E6%8E%A5%E3%80%81%E5%88%86%E9%A1%B5%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%AD%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">配置其他参数，如社交媒体链接、分页、侧边栏等</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-4"><span class="toc-number">1.6.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-5"><span class="toc-number">1.7.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%85%E5%AE%8C%E6%9C%AA%E7%BB%AD%E2%80%A6%E2%80%A6%E6%95%AC%E8%AF%B7%E6%9C%9F%E5%BE%85%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82"><span class="toc-number"></span> <span class="toc-text">待完未续……敬请期待。。。。。。。。。。</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%E5%88%B0%E9%83%BD%E7%9C%8B%E5%88%B0%E8%BF%99%E9%87%8C%E4%BA%86%EF%BC%8C%E5%BE%AE%E4%BF%A1%E4%B8%80%E9%94%AE%E5%8F%91%E4%B8%AA%E7%BA%A2%E5%8C%85%EF%BC%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E4%B9%9F%E4%B8%8D%E4%BB%8B%E6%84%8F"><span class="toc-number">1.</span> <span class="toc-text">看到都看到这里了，微信一键发个红包，支付宝也不介意..</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/year/09/11/%E9%98%BF%E9%87%8C%E4%BA%91OSS/" title="新大陆的发现之“有关OSS”">新大陆的发现之“有关OSS”</a><time datetime="2024-09-11T11:14:03.000Z" title="发表于 2024-09-11 19:14:03">2024-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/year/09/11/%E5%A4%87%E6%88%98%E8%BD%AF%E8%80%83%E4%B9%8B%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="备战软考之软件设计师第一章">备战软考之软件设计师第一章</a><time datetime="2024-09-11T06:34:15.000Z" title="发表于 2024-09-11 14:34:15">2024-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" title="计算机操作系统的那些事儿">计算机操作系统的那些事儿</a><time datetime="2024-07-23T11:51:36.000Z" title="发表于 2024-07-23 19:51:36">2024-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/" title="油猴编写脚本">油猴编写脚本</a><time datetime="2024-07-22T02:59:46.000Z" title="发表于 2024-07-22 10:59:46">2024-07-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/year/07/16/Linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="Linux的基本操作">Linux的基本操作</a><time datetime="2024-07-16T12:28:34.000Z" title="发表于 2024-07-16 20:28:34">2024-07-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Hungyingyuan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
