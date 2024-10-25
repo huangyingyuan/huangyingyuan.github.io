@@ -1,193 +1,156 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机操作系统的那些事儿 | Huangyingyuan's Life Blog</title><meta name="author" content="Hungyingyuan"><meta name="copyright" content="Hungyingyuan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="关于操作系统的一些概念.....">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机操作系统的那些事儿">
+<meta property="og:url" content="https://huangyingyuan.github.io/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html">
+<meta property="og:site_name" content="Huangyingyuan&#39;s Life Blog">
+<meta property="og:description" content="关于操作系统的一些概念.....">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://huangyingyuan.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2024-07-23T11:51:36.000Z">
+<meta property="article:modified_time" content="2024-07-23T11:55:36.825Z">
+<meta property="article:author" content="Hungyingyuan">
+<meta property="article:tag" content="奇葩那些事儿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://huangyingyuan.github.io/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://huangyingyuan.github.io/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8" />
-    <title>计算机操作系统的那些事儿 | Huangyingyuan&#39;s Life Blog</title>
-    <meta name="author" content="Hungyingyuan" />
-    <meta name="description" content="Wishing you a pleasant day" />
-    <meta name="keywords" content="" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <link rel="icon" href="/images/avatar.jpg" />
-    <link rel="preconnect" href="https://s4.zstatic.net" />
-<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-<link rel="preconnect" href="https://fonts.googleapis.cn" />
-<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
-<link
-    rel="stylesheet"
-    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
-/>
-<script> const mixins = {}; </script>
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
 
-<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
 
-
-<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
-
-
-
-<script src="/js/lib/preview.js"></script>
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
-<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
-<body>
-    <div id="layout">
-        <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
-                </div>
-            </div>
-        </transition>
-        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>HUANGYINGYUAN&#39;S LIFE BLOG</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;HUANGYINGYUAN&#39;S LIFE BLOG</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                    </div>
-                </a>
-                
-                <a href="/tags">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
-
-        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>计算机操作系统的那些事儿</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/23
-        </span>
-        
-        
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            
-            <span class="tag">
-                
-                <a href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" style="color: #ff7d73">
-                    奇葩那些事儿
-                </a>
-            </span>
-            
-        </span>
-        
-    </div>
+      const theme = saveToLocal.get('theme')
     
-    <div class="content" v-pre>
-        <h1 id="1，磁盘"><a href="#1，磁盘" class="headerlink" title="1，磁盘"></a>1，磁盘</h1><h2 id="磁盘在计算机中扮演的角色："><a href="#磁盘在计算机中扮演的角色：" class="headerlink" title="磁盘在计算机中扮演的角色："></a>磁盘在计算机中扮演的角色：</h2><h3 id="1，数据存取"><a href="#1，数据存取" class="headerlink" title="1，数据存取"></a>1，数据存取</h3><h3 id="2，数据读取"><a href="#2，数据读取" class="headerlink" title="2，数据读取"></a>2，数据读取</h3><h3 id="3，数据备份与恢复"><a href="#3，数据备份与恢复" class="headerlink" title="3，数据备份与恢复"></a>3，数据备份与恢复</h3><h3 id="4，系统启动-将数据加载到系统中"><a href="#4，系统启动-将数据加载到系统中" class="headerlink" title="4，系统启动(将数据加载到系统中)"></a>4，系统启动(将数据加载到系统中)</h3><h3 id="5，文件管理"><a href="#5，文件管理" class="headerlink" title="5，文件管理"></a>5，文件管理</h3><h3 id="6，性能的优化-如HDD换SSD，提高性能…"><a href="#6，性能的优化-如HDD换SSD，提高性能…" class="headerlink" title="6，性能的优化(如HDD换SSD，提高性能…..)"></a>6，性能的优化(如HDD换SSD，提高性能…..)</h3><h2 id="磁盘I-O瓶颈"><a href="#磁盘I-O瓶颈" class="headerlink" title="磁盘I/O瓶颈"></a>磁盘I/O瓶颈</h2><p>(磁盘I/O是指 input/output 写入和写出)<br>磁盘I/O瓶颈是指在计算机系统中，磁盘输入/输出（I/O）操作成为系统性能的限制因素，导致系统整体性<br>能下降的现象。I/O操作包括从磁盘读取数据和向磁盘写入数据，这些操作通常比CPU处理和内存访问要慢<br>得多。</p>
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机操作系统的那些事儿',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-23 19:55:36'
+}</script><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Huangyingyuan's Life Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">计算机操作系统的那些事儿</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">计算机操作系统的那些事儿</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-23T11:51:36.000Z" title="发表于 2024-07-23 19:51:36">2024-07-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-23T11:55:36.825Z" title="更新于 2024-07-23 19:55:36">2024-07-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1，磁盘"><a href="#1，磁盘" class="headerlink" title="1，磁盘"></a>1，磁盘</h1><h2 id="磁盘在计算机中扮演的角色："><a href="#磁盘在计算机中扮演的角色：" class="headerlink" title="磁盘在计算机中扮演的角色："></a>磁盘在计算机中扮演的角色：</h2><h3 id="1，数据存取"><a href="#1，数据存取" class="headerlink" title="1，数据存取"></a>1，数据存取</h3><h3 id="2，数据读取"><a href="#2，数据读取" class="headerlink" title="2，数据读取"></a>2，数据读取</h3><h3 id="3，数据备份与恢复"><a href="#3，数据备份与恢复" class="headerlink" title="3，数据备份与恢复"></a>3，数据备份与恢复</h3><h3 id="4，系统启动-将数据加载到系统中"><a href="#4，系统启动-将数据加载到系统中" class="headerlink" title="4，系统启动(将数据加载到系统中)"></a>4，系统启动(将数据加载到系统中)</h3><h3 id="5，文件管理"><a href="#5，文件管理" class="headerlink" title="5，文件管理"></a>5，文件管理</h3><h3 id="6，性能的优化-如HDD换SSD，提高性能…"><a href="#6，性能的优化-如HDD换SSD，提高性能…" class="headerlink" title="6，性能的优化(如HDD换SSD，提高性能…..)"></a>6，性能的优化(如HDD换SSD，提高性能…..)</h3><h2 id="磁盘I-O瓶颈"><a href="#磁盘I-O瓶颈" class="headerlink" title="磁盘I/O瓶颈"></a>磁盘I/O瓶颈</h2><p>(磁盘I/O是指 input/output 写入和写出)<br>磁盘I/O瓶颈是指在计算机系统中，磁盘输入/输出（I/O）操作成为系统性能的限制因素，导致系统整体性<br>能下降的现象。I/O操作包括从磁盘读取数据和向磁盘写入数据，这些操作通常比CPU处理和内存访问要慢<br>得多。</p>
 <h3 id="磁盘I-O瓶颈的原因"><a href="#磁盘I-O瓶颈的原因" class="headerlink" title="磁盘I/O瓶颈的原因"></a>磁盘I/O瓶颈的原因</h3><ol>
 <li><strong>磁盘速度慢</strong>：传统的机械硬盘（HDD）由于需要物理旋转和磁头移动，其读写速度相对较慢。即使是固态硬盘（SSD），其速度也远低于内存。</li>
 <li><strong>I/O请求过多</strong>：当系统或应用程序频繁地进行磁盘读写操作时，磁盘可能无法及时处理所有请求，导致请求队列变长，响应时间增加。</li>
@@ -258,82 +221,4 @@
 <p>在操作系统中，当应用程序对内存中的数据进行修改时，这些修改通常首先发生在物理内存（RAM）中。由于内存的速度远快于磁盘，操作系统会尽量延迟将这些修改写回到磁盘，以提高性能。</p>
 <p>脏页的存在意味着内存中的数据与磁盘上的数据不一致。操作系统会在适当的时候（例如内存压力增大、系统空闲时、达到一定时间间隔等）将脏页写回到磁盘，以确保数据的持久性和一致性。这个过程称为“回写”（Write-back）或“刷脏”（Dirty Page Flushing）。</p>
 <p>脏页的管理是操作系统内存管理的一个重要方面，涉及到性能和数据一致性之间的平衡。如果脏页过多，可能会导致内存不足，从而影响系统性能；如果脏页长时间不回写，可能会导致数据丢失或不一致。因此，操作系统会根据系统负载和配置参数来动态调整脏页的回写策略。</p>
-
-    </div>
-    
-    
-    
-    
-    
-    
-    
-</div>
-
-            <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2024 Huangyingyuan&#39;s Life Blog
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;Hungyingyuan
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
-    </div>
-</footer>
-
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-        </transition>
-        
-    </div>
-    <script src="/js/main.js"></script>
-    
-    
-
-
-
-
-    
-<!-- hexo injector body_end start --><script data-pjax>
-  function butterfly_clock_anzhiyu_injector_config(){
-    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
-    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
-    console.log('已挂载butterfly_clock_anzhiyu')
-    if(parent_div_git) {
-      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
-    }
-  }
-  var elist = 'null'.split(',');
-  var cpage = location.pathname;
-  var epage = '/';
-  var qweather_key = '8bc680cde7d34a8e9751dd00a8edfb41';
-  var gaud_map_key = 'c6ca74a817544e8bf510ee74bccb3db1';
-  var baidu_ak_key = 'undefined';
-  var flag = 0;
-  var clock_rectangle = '113.34532,23.15624';
-  var clock_default_rectangle_enable = 'false';
-
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
-
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_clock_anzhiyu_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_clock_anzhiyu_injector_config();
-  }
-  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://huangyingyuan.github.io">Hungyingyuan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://huangyingyuan.github.io/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">https://huangyingyuan.github.io/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://huangyingyuan.github.io" target="_blank">Huangyingyuan's Life Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A5%87%E8%91%A9%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">奇葩那些事儿</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/year/09/11/%E5%A4%87%E6%88%98%E8%BD%AF%E8%80%83%E4%B9%8B%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="备战软考之软件设计师第一章"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">备战软考之软件设计师第一章</div></div><div class="info-2"><div class="info-item-1">第一页(码制) 第二页(逻辑运算符) 第三页(校验码) 第四页(校验码) 第五页(计算机结构) 第六页(寻址方式) 第七页(CISC与PISC) </div></div></div></a><a class="pagination-related" href="/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/" title="油猴编写脚本"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">油猴编写脚本</div></div><div class="info-2"><div class="info-item-1">注：油猴即”篡改猴“ 背景： 通常我们在·网页端的CSDN中，不登陆账号的话，是禁止复制代码内容的，给我们带来了层层不便，今天我 们就硬气点，自己编写脚本实现不应登录就可以复制代码 1，在浏览器安装油猴（搜索”篡改猴“）  2，进入到主页(这里我之前安装的脚本是”用来刷网课的，实现网课自由好吧。唯一缺点是要充值，等有实力了， 我也自己写自动刷网课的脚本，这样子我也可以实现财富自由了~“)  3，话不多说。直接进入到CSDN界面，开始操作好吧  4，浏览器提供的接口contentediable(是否可以被编辑) contentediable的默认值是False，也就是默认是不可以编辑的，我们将其False偷偷摸摸地设置为True，就可以编辑了 接下来你懂的~~~就是把CSDN的contentediable的Flase改成True就可以实现不用登录就可以偷取别人的代码了 5，编写修改代码 123456789//获取所有代码块    let codes = document.querySelectorAll("code");   ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/" title="油猴编写脚本"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-22</div><div class="info-item-2">油猴编写脚本</div></div><div class="info-2"><div class="info-item-1">注：油猴即”篡改猴“ 背景： 通常我们在·网页端的CSDN中，不登陆账号的话，是禁止复制代码内容的，给我们带来了层层不便，今天我 们就硬气点，自己编写脚本实现不应登录就可以复制代码 1，在浏览器安装油猴（搜索”篡改猴“）  2，进入到主页(这里我之前安装的脚本是”用来刷网课的，实现网课自由好吧。唯一缺点是要充值，等有实力了， 我也自己写自动刷网课的脚本，这样子我也可以实现财富自由了~“)  3，话不多说。直接进入到CSDN界面，开始操作好吧  4，浏览器提供的接口contentediable(是否可以被编辑) contentediable的默认值是False，也就是默认是不可以编辑的，我们将其False偷偷摸摸地设置为True，就可以编辑了 接下来你懂的~~~就是把CSDN的contentediable的Flase改成True就可以实现不用登录就可以偷取别人的代码了 5，编写修改代码 123456789//获取所有代码块    let codes = document.querySelectorAll("code");   ...</div></div></div></a><a class="pagination-related" href="/year/09/11/%E9%98%BF%E9%87%8C%E4%BA%91OSS/" title="新大陆的发现之“有关OSS”"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-11</div><div class="info-item-2">新大陆的发现之“有关OSS”</div></div><div class="info-2"><div class="info-item-1">阿里云对象存储(Object Storage Service，简称 OSS)是阿里云提供的一种海量、安全、低成本、高可靠的云存储服务。它将数据以对象的形式存储在云端，并提供简单易用的 API和 SDK，方便用户进行数据的上传、下载、管理和分析。 主要特点1，海量储存，无限扩展2，高可靠，数据安全3，成本低想我这种喜欢白嫖的人，我还想着自己去搭建图床，后面我发现“OSS”也可以实现图床的功能，但是我之前被劝退的原因是因为既然要收费，但是~~直到我再次想起OSS时，我就去官网看了一眼，我惊呆了！老铁们，价格便宜=白嫖，懂吗？ 我是第一次使用，新手的话，是1块钱就能够享受1年的优惠，我是购买了“对象存储COS”这个，足够满足我的需求了(让照片生成外链，然后上传到我的Blog中，哈哈哈，因为我之前使用Github的图片链接上传到blog中，有时候有显示，有时候无显示，可能是因为GitHub设置了权限什么的，所以我放弃了) 4，简单，上手快只需要创建一个“存储桶”，然后往里面上传你想要存储的文件、视频、图片……即可 </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Hungyingyuan</div><div class="author-info-description">希望你能学有所成</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%EF%BC%8C%E7%A3%81%E7%9B%98"><span class="toc-number">1.</span> <span class="toc-text">1，磁盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%89%AE%E6%BC%94%E7%9A%84%E8%A7%92%E8%89%B2%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">磁盘在计算机中扮演的角色：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96"><span class="toc-number">1.1.1.</span> <span class="toc-text">1，数据存取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%8C%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.2.</span> <span class="toc-text">2，数据读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="toc-number">1.1.3.</span> <span class="toc-text">3，数据备份与恢复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%8C%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8-%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E5%88%B0%E7%B3%BB%E7%BB%9F%E4%B8%AD"><span class="toc-number">1.1.4.</span> <span class="toc-text">4，系统启动(将数据加载到系统中)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%EF%BC%8C%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.5.</span> <span class="toc-text">5，文件管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%EF%BC%8C%E6%80%A7%E8%83%BD%E7%9A%84%E4%BC%98%E5%8C%96-%E5%A6%82HDD%E6%8D%A2SSD%EF%BC%8C%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%E2%80%A6"><span class="toc-number">1.1.6.</span> <span class="toc-text">6，性能的优化(如HDD换SSD，提高性能…..)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98I-O%E7%93%B6%E9%A2%88"><span class="toc-number">1.2.</span> <span class="toc-text">磁盘I&#x2F;O瓶颈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98I-O%E7%93%B6%E9%A2%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">磁盘I&#x2F;O瓶颈的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98I-O%E7%93%B6%E9%A2%88%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">1.2.2.</span> <span class="toc-text">磁盘I&#x2F;O瓶颈的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%A3%81%E7%9B%98I-O%E7%93%B6%E9%A2%88%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.</span> <span class="toc-text">解决磁盘I&#x2F;O瓶颈的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%EF%BC%8C%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">2，进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%BC%8C%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1，进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%BC%8C%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">2，线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E8%80%85%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-number">2.3.</span> <span class="toc-text">两者的关系：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3%EF%BC%8C%E5%86%85%E5%AD%98"><span class="toc-number">3.</span> <span class="toc-text">3，内存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%BC%8C%E5%86%85%E5%AD%98%E5%88%86%E9%A1%B5"><span class="toc-number">3.1.</span> <span class="toc-text">1，内存分页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%BC%8C%E8%84%8F%E9%A1%B5%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">3.2.</span> <span class="toc-text">2，脏页是什么?</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/year/09/11/%E9%98%BF%E9%87%8C%E4%BA%91OSS/" title="新大陆的发现之“有关OSS”">新大陆的发现之“有关OSS”</a><time datetime="2024-09-11T11:14:03.000Z" title="发表于 2024-09-11 19:14:03">2024-09-11</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/year/09/11/%E5%A4%87%E6%88%98%E8%BD%AF%E8%80%83%E4%B9%8B%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="备战软考之软件设计师第一章">备战软考之软件设计师第一章</a><time datetime="2024-09-11T06:34:15.000Z" title="发表于 2024-09-11 14:34:15">2024-09-11</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/year/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" title="计算机操作系统的那些事儿">计算机操作系统的那些事儿</a><time datetime="2024-07-23T11:51:36.000Z" title="发表于 2024-07-23 19:51:36">2024-07-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/year/07/22/%E6%B2%B9%E7%8C%B4%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/" title="油猴编写脚本">油猴编写脚本</a><time datetime="2024-07-22T02:59:46.000Z" title="发表于 2024-07-22 10:59:46">2024-07-22</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/year/07/16/Linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="Linux的基本操作">Linux的基本操作</a><time datetime="2024-07-16T12:28:34.000Z" title="发表于 2024-07-16 20:28:34">2024-07-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Hungyingyuan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
