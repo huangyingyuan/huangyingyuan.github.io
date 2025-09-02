@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2025年泰迪杯第三题解题思路 | 欢迎沉浸式享受程序员的知识海洋</title><meta name="author" content="黄英源"><meta name="copyright" content="黄英源"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 文本语义相似度分析（BERT 模型） 双向语义编码：采用 BERT-base-chinese 预训练模型，对论文文本进行分词、停用词过滤（哈工大停用词表），通过 12 层 Transformer 编码器生成上下文嵌入：    语义相似度度量：	基于余弦相似度计算跨论文文本语义距离：  2. 图像与公式视觉特征提取（YOLO+CLIP） 目标定位：利用 YOLO11l 模型检测图像中的 “图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025年泰迪杯第三题解题思路">
+<meta property="og:url" content="https://huangyingyuan.github.io/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%89%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/index.html">
+<meta property="og:site_name" content="欢迎沉浸式享受程序员的知识海洋">
+<meta property="og:description" content="1. 文本语义相似度分析（BERT 模型） 双向语义编码：采用 BERT-base-chinese 预训练模型，对论文文本进行分词、停用词过滤（哈工大停用词表），通过 12 层 Transformer 编码器生成上下文嵌入：    语义相似度度量：	基于余弦相似度计算跨论文文本语义距离：  2. 图像与公式视觉特征提取（YOLO+CLIP） 目标定位：利用 YOLO11l 模型检测图像中的 “图片">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://huangyingyuan.github.io//images/hyy.jpg">
+<meta property="article:published_time" content="2025-06-01T04:07:54.000Z">
+<meta property="article:modified_time" content="2025-06-01T04:11:05.115Z">
+<meta property="article:author" content="黄英源">
+<meta property="article:tag" content="2025泰迪杯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://huangyingyuan.github.io//images/hyy.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2025年泰迪杯第三题解题思路",
+  "url": "https://huangyingyuan.github.io/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%89%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/",
+  "image": "https://huangyingyuan.github.io//images/hyy.jpg",
+  "datePublished": "2025-06-01T04:07:54.000Z",
+  "dateModified": "2025-06-01T04:11:05.115Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "黄英源",
+      "url": "https://huangyingyuan.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://huangyingyuan.github.io/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%89%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2025年泰迪杯第三题解题思路',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="web_bg" style="background-image: url(/images/manbreakgroud.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/%5Cimages%5Chyy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> Home</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/house"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> About</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/id-card"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/about"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Archives</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/box-archive"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/archives"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Categories</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bookmark"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/categories"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Tags</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/tags"><span> link</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">欢迎沉浸式享受程序员的知识海洋</span></a><a class="nav-page-title" href="/"><span class="site-name">2025年泰迪杯第三题解题思路</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> Home</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/house"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> About</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/id-card"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/about"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Archives</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/box-archive"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/archives"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Categories</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bookmark"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/categories"><span> link</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> Tags</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags"><span> name</span></a></li><li><a class="site-page child" href="/solid"><span> theme</span></a></li><li><a class="site-page child" href="/tags"><span> link</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2025年泰迪杯第三题解题思路</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-01T04:07:54.000Z" title="发表于 2025-06-01 12:07:54">2025-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-01T04:11:05.115Z" title="更新于 2025-06-01 12:11:05">2025-06-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h5 id="1-文本语义相似度分析（BERT-模型）"><a href="#1-文本语义相似度分析（BERT-模型）" class="headerlink" title="1. 文本语义相似度分析（BERT 模型）"></a><font style="color:rgb(0, 0, 0);">1. 文本语义相似度分析（BERT 模型）</font></h5><ul>
+<li><strong>双向语义编码</strong>：<br>采用 BERT-base-chinese 预训练模型，对论文文本进行分词、停用词过滤（哈工大停用词表），通过 12 层 Transformer 编码器生成上下文嵌入：</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745215523021-f12ddcb5-4bea-4aec-8b8f-583cff38f531.png"></li>
+<li><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745215531438-7cecbf9b-67ee-4864-b44d-d32c88f7ea8f.png"></li>
+</ul>
+<p><strong>语义相似度度量</strong><font style="color:rgba(0, 0, 0, 0.85);">：</font><br><font style="color:rgba(0, 0, 0, 0.85);">	基于余弦相似度计算跨论文文本语义距离：</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745215555379-c96475d2-db60-40e7-8047-78d6ee3eb898.png"></p>
+<h5 id="2-图像与公式视觉特征提取（YOLO-CLIP）"><a href="#2-图像与公式视觉特征提取（YOLO-CLIP）" class="headerlink" title="2. 图像与公式视觉特征提取（YOLO+CLIP）"></a>2. 图像与公式视觉特征提取（YOLO+CLIP）</h5><ul>
+<li><strong>目标定位</strong><font style="color:rgba(0, 0, 0, 0.85);">：</font><br><font style="color:rgba(0, 0, 0, 0.85);">利用 YOLO11l 模型检测图像中的 “图片”（类别 0）和 “公式”（类别 1）区域，输出边界框及页号信息</font></li>
+<li><strong>视觉特征编码</strong>：<br>对裁剪后的 ROI 区域进行标准化预处理：<br><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745215925011-9140eadf-a3da-494c-8109-4c5f27bf27d3.png"><br><font style="color:rgba(0, 0, 0, 0.85);">通过 CLIP 视觉编码器（ViT-B/32）提取视觉嵌入</font><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745215955426-0689f112-7056-43bb-8383-3ec7d31dacac.png"><font style="color:rgba(0, 0, 0, 0.85);">，支持跨模态对比学习：</font><br><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745215967916-4d78a20d-80ee-46e2-b228-11aba836a0ff.png"></li>
+</ul>
+<h5 id="3-跨模态对比学习与相似度计算"><a href="#3-跨模态对比学习与相似度计算" class="headerlink" title="3. 跨模态对比学习与相似度计算"></a>3. 跨模态对比学习与相似度计算</h5><ul>
+<li><strong>图像 / 公式雷同检测</strong>：<br><font style="color:rgba(0, 0, 0, 0.85);">构建跨论文目标区域对</font> (<em>RA</em>,<em>RB</em>)，计算视觉嵌入余弦相似度：<br><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745215995258-91d715ad-39eb-4733-b20b-6337f4205f6b.png"><br><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745216004080-9dcfa55e-6c94-44dc-b8f0-042ebaa62da0.png"></li>
+<li><strong>多模态特征融合</strong>：<br>采用对比学习优化特征空间，通过 InfoNCE 损失函数拉近同类模态嵌入距离：<br><img src="https://cdn.nlark.com/yuque/0/2025/png/55661886/1745216024209-6de07981-1af8-4d84-841f-f78d5bdb87fe.png"><font style="color:rgba(0, 0, 0, 0.85);">  </font></li>
+</ul>
+<p>4.层次分析法去构建动态权重进行重复率的整体计算</p>
+<p>首先是，固定公式的权重为0.1（毕竟公式在每一篇的文章中占比不大）</p>
+<p>接着是，如果图片占比超过0.6的时候，则提高图片的权重</p>
+<p>最后是，如果文本占比高的时候，则提高文本的权重</p>
+<p>结合AHP权重计算公式，即可得出总体论文的重复率</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://huangyingyuan.github.io">黄英源</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://huangyingyuan.github.io/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%89%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/">https://huangyingyuan.github.io/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%89%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://huangyingyuan.github.io" target="_blank">欢迎沉浸式享受程序员的知识海洋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/2025%E6%B3%B0%E8%BF%AA%E6%9D%AF/">2025泰迪杯</a></div><div class="post-share"><div class="social-share" data-image="/%5Cimages%5Chyy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%80%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="2025年泰迪杯第一题解题思路"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-01</div><div class="info-item-2">2025年泰迪杯第一题解题思路</div></div><div class="info-2"><div class="info-item-1">赛题A背景 问题一 参赛队伍号该字段通过读取主办方提供的 附件1.xlsx 文件中“加密号-参赛队号”的映射表，将每篇论文的 PDF 文件名（去除 .pdf 后缀）作为加密号，在 Excel 中查找对应的参赛队伍编号并匹配输出。 论文标题由于不同论文标题所在位置不固定，本模型采用结构化文本分析的方法，默认从 PDF 文档的前 3 页中提取所有文本内容，并结合字号与文本位置进行分析，提取最可能为标题的那一行。 具体方法为：首先排除包含“摘要”、“学院”、“目录”等无关词汇的文本行，然后在候选文本中选择字号最大的行作为标题，若字号相同则选择位置最靠上的文本。此方法可适配不同模板，并避免将页眉、目录名识别为标题。 论文总页数 采用 PyPDF2 或 pdfplumber 库直接获取 PDF 的总页数，遍历每一页即可统计。每处理一页，即进行计数加一，最终返回页总数。   总字数本字段定义为所有页文本内容中出现的中文字数与英文单词总和，不计空格。处理逻辑为：逐页提取文本内容，使用 .strip() 去除空格和换行，再分别判断：中文字符直接使用 len() 统计；英文则使用...</div></div></div></a><a class="pagination-related" href="/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E5%9B%9B%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="2025年泰迪杯第四题解题思路"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-01</div><div class="info-item-2">2025年泰迪杯第四题解题思路</div></div><div class="info-2"><div class="info-item-1">特别是（    A1398    A1944   A2261   A2450   A3285   A3477   ）图片转pdf，普通文本相似度为0 针对高图片占比论文（图片占比 &gt; 80%），提出基于多模态融合的重复率检测框架，整合文本（BERT）、图片，公式（YOLO+ViT）三类模态特征，通过层次分析法（AHP）加权计算综合重复率，技术路线如下： 核心步骤：  高图论文筛选：基于图片区域面积占比筛选目标论文 多模态特征提取：文本（BERT 语义编码）、图片 / 公式（ViT 视觉编码 + YOLO 定位） 相似度计算：对比学习优化模态内相似度，余弦距离度量跨模态匹配 综合重复率建模：AHP 确定权重（图片 0.6 / 文本 0.3 / 公式 0.1），加权融合单模态重复率   一、图片占比识别此模块的作用是筛选出图片占比过高的论文，为后续采用针对性检测策略提供依据。 论文数据预处理 运用 PyMuPDF 把论文转换为图片，设定合适的 DPI=300，以保证图片质量。 使用 YOLO...</div></div></div></a><a class="pagination-related" href="/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%BA%8C%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="2025年泰迪杯第二题解题思路"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-01</div><div class="info-item-2">2025年泰迪杯第二题解题思路</div></div><div class="info-2"><div class="info-item-1">泰迪杯第二问思路 问题二的具体问题 问题二的问题解剖 问题二的解决方案 一、数据准备：多模态数据结构化处理 数据处理附件 1：采用关系型数据建模，借助 pandas.DataFrame 构建参赛队信息表，明确实体属性。此结构支持高效的键值查询，为后续通过加密号关联论文编号奠定基础，便于数据的整合与分析。附件 2：运用 PDF 文本抽取技术（pdfplumber）提取附件 2 的文本内容。随后，使用 jieba 分词工具，并结合自定义专业词典，提升分词的准确性。该词典包含赛题相关的专业术语，能够更精准地对文本进行切分。最后，利用 Counter 统计分词结果的频率，保留出现次数较高的词汇。竞赛论文：利用 PDF 文本抽取技术（pdfplumber）实现版面分析。通过布局感知算法，能够有效区分正文、标题、图表等不同元素，从而提取出纯文本内容，为后续的文本处理提供干净的数据基础。 文本处理多语言文本清洗：正则表达式匹配：使用 re 模块实现多模式匹配，通过正则表达式 [^\u4e00-\u9fa5a-zA-Z0-9]...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/%5Cimages%5Chyy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">黄英源</div><div class="author-info-description">分享编程知识、技术经验和开发技巧的个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%96%87%E6%9C%AC%E8%AF%AD%E4%B9%89%E7%9B%B8%E4%BC%BC%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%88BERT-%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">1. 文本语义相似度分析（BERT 模型）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%9B%BE%E5%83%8F%E4%B8%8E%E5%85%AC%E5%BC%8F%E8%A7%86%E8%A7%89%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%EF%BC%88YOLO-CLIP%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">2. 图像与公式视觉特征提取（YOLO+CLIP）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E8%B7%A8%E6%A8%A1%E6%80%81%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%9B%B8%E4%BC%BC%E5%BA%A6%E8%AE%A1%E7%AE%97"><span class="toc-number">3.</span> <span class="toc-text">3. 跨模态对比学习与相似度计算</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E5%9B%9B%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="2025年泰迪杯第四题解题思路">2025年泰迪杯第四题解题思路</a><time datetime="2025-06-01T04:08:13.000Z" title="发表于 2025-06-01 12:08:13">2025-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%89%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="2025年泰迪杯第三题解题思路">2025年泰迪杯第三题解题思路</a><time datetime="2025-06-01T04:07:54.000Z" title="发表于 2025-06-01 12:07:54">2025-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%BA%8C%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="2025年泰迪杯第二题解题思路">2025年泰迪杯第二题解题思路</a><time datetime="2025-06-01T04:07:36.000Z" title="发表于 2025-06-01 12:07:36">2025-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/01/2025%E5%B9%B4%E6%B3%B0%E8%BF%AA%E6%9D%AF%E7%AC%AC%E4%B8%80%E9%A2%98%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="2025年泰迪杯第一题解题思路">2025年泰迪杯第一题解题思路</a><time datetime="2025-06-01T04:06:57.000Z" title="发表于 2025-06-01 12:06:57">2025-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/02/MCM-ICM%E6%88%90%E9%95%BF%E5%8E%86%E7%A8%8B/" title="MCM/ICM成长历程">MCM/ICM成长历程</a><time datetime="2025-02-02T14:42:50.000Z" title="发表于 2025-02-02 22:42:50">2025-02-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 黄英源</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
